@@ -1,0 +1,431 @@
+Explanatory Variables: gdp, employment, growth in wages
+10 years data, different industries, regression
+Focus on share holder not denying others
+Shareholder is the ultimate risk
+Dividend : Profit after tax, share hodler get the residual
+US comapnies - maximized share holder value, not denying other stake holders
+8/10 USA companies- Mecenzie confirmed stake holder theory
+2 Industries different results - Germany: Automobiles, Japan: Electronics 
+
+BP-AMACO's vision: Satisfy long term (3-5) years sharehodler value
+Companies should satisfy - long-term shareholder values not the spectators
+
+Long-term growth value is our core and fundamental objective 
+Cycle: Discipliend investment-(no time over, no cost over run, net benefits +ve) operational excellence, Industry leading returns - above industry avgs, superior chasflows (sustainable cash flow not volatile cash flow)
+Dependence on external borrowers go down, maintain from internal cash
+
+Contrast: Xerox :  stake holders approach - laundry list of objectives (4)
+1. satisfy customers
+2. satisfy employers
+3. Increase market shares
+4. More profits
+
+bottomline : profit has gone down, satisfy 3/4 objectives, have you achived stake holder value maximization with 3/4 onjectives? No
+
+Exoon/BPS golas - shareholder approach is better than Xerox
+
+annual report: lack of confidence on the part of the CEO of the company. Unable to show better profitability. They can take refugee in other objectives.
+               If it is more than one year proift loss, share holders can ask queries to the management. 
+
+focuses on profits and focuses on shareholders - shareholder values approach
+
+India: corporate objectives: Reliance Vision
+1980/81 : reliance vision statement - no where they mentioned shareholder values
+	  more networth (balance sheet value of equity) of equity
+          No equity concept at that time, No NSE BSE started 1979
+	  Improve your balanche sheet
+	  hostile acuqisition -  No predator come and beat Reliance
+
+1997/98: stock market has improved, NSE came, regulators came, 1994- SEBI came up with rule of hostile acuqisition acquire through market
+	 shareholder value term is first time used
+	 20% EPS, single minded shareholder value
+	 20% shareholder value(equity)
+
+2017/18: maximizing stakeholder values: employees, suppliers, customers, shareholders
+
+	Main street is more important than wall street
+	
+Shared Value, Porter(HBR 2011) - another approach
+--------------------------------------------------
+not distributing value
+one company - commercial and societal arms - giving back to the society
+Tata Group
+
+How do you maximize share holder value? what can you do as a manager of the company?
+Value Pentagon
+---------------
+optimum value: desired value that mgmt wanted to have the value of the firm?
+curr value > optimum value? over prices, stock is over valued.. try to sell them, trading of stock will go up
+people sell stocks for liquidity reason - then people sell
+current value is less than optimum value? large gap? how do you fill it?
+3 ways - (To minimize the value gap)
+
+1. Internal restructuring  - one way to improve the value
+   L&T - inhouse companies - but unincorporated companies, not legal entities, created 7-9 inhouse companies (SBUs are converted into inhouse)
+   subsidiary companies - legally they are separate entities
+   Experiments : To create future leaderships. Has board, financial power, quarter meetings,agendas, prepare minutes. Performance of the unit,    Understanding compliances. LandT found that efficiency of the company/people is improved.
+   debottlenecking
+   optimizing operations - remove wastages, remove unnecssary investments, don't invest in dead assets
+   Maximize revenue- asset turnover
+   Optimize the cost - better than the industry avg cost
+      
+2. External restructuring - if value is not fully improved then go for this - take help of external organization
+   Alliance, acuqire brand/unit, JV, MnA with other entity - increase balance sheet side
+   One of the org's unit separately to outside  - split 
+   
+3. Financial engineering/restructuring - if there is some mild value gap then go for this
+   To improve the quality of the balance sheet
+   Look at liabailities and equity sides.
+   Molecule and Miller - improve value with interal/external restructuring not with financial engg in 1950s
+   			 Proved it wrong later
+External structuring:
+
+Asset restructuring:
+
+L&T:
+L&T sold cement and electricity business units.
+Becoming smaller with smaller business untis,  you create more value. 
+Why does it happen? because of diversification discount.
+Market does not like one company doing different things
+Share holder not sure the share price represent avg of the units, they don't understand.
+
+Diversification Discount:
+one company - 5 business units
+over all performance of the firm.
+	share prices - avg of the companies? they put discount on the price
+Empricial study - global found that 15% discount if multiple business units usinf - SOTP (some of the perks method)
+Look at the similar line of business agaisnt the individual business untis share prices using some comparable players
+
+To unlock the value - separate the units. remove the discount
+
+Benefits:
+1. constitutes an internal capital market - obtining profits from some of the units to less performing units than going to banks
+2. Equity Market don't like internal market - because it is inefficient - you don't price it correctly
+3. Try to reduce the divers.. discount and maximize the firm value
+
+Modes of asset disposition:
+---------------------------
+1. compelte disposition
+	1. Important way is:  spin-off method ; eg: Reliance
+	Spin-off(demerger): Strategic rationale - 8 points
+		  Capital market implications
+		  Implementation issues
+	Indian Examples: Reliance, GOCL
+	Unlocking the value: after demerger - shares of combined demrger can grow multiple times 
+	2. Split-off - share holder may get the cash
+        Graphene-L&T - Split-off
+ 	Share holder gets more shares in parent entity
+	Original entity remains same in spin-off and split-off
+	3. Split Up - existing break into 2 or more, original entity ceases to exist
+           short term - 5.9
+           90 days - 8.6
+           year   -  31.6 
+	4. Sell-off - company gets the money
+			
+
+2. partial disposition
+   Equity carve out: subsidiary remains subsidiary ;In spin-off no more subsidiary
+	Discover the price/valuation - in the market using carve out - testing in the market before selling 
+	Milk the balance sheet before selling the entity to startegic investor
+	VSNL - public Ltd company
+	 750% dividend announced before selling to TATA group - Govt decided to take the money out
+   pre-carve out diagram
+	Primary offering
+   post-carve out diagram
+	Secondary offering
+
+	primary offering is better and market loves to invest in this primary offering because of the transperance.
+	Subsidiary pays the dividends based on performance of the subsidiary. Subsidiary IPO is known to the market.
+        
+	In secondary offering no transparaency to the market.
+        Internal tunneling: Internal capital can transfer.move to other divisions  which are performing bad from subsidiary. It is not known to the market.	
+  	Parent company controls the subsidiaries in both primary and secondary offerings
+   	
+3. Financial restructuring: Improve the quality of baalnce sheet- Improve the value of shareholder values
+	Loss making company - improve balance hseet- cleaning up the balance sheets
+	losses - write-off
+	wasteful assets - dispose them
+	valuable assets - write up - revalue them
+	
+	recomensate - haircut - waiving off loans - removes the losses side 
+	unfund liabilities - get govt bonds by deferring for some years	  - removes the liabilities
+	
+	Deleveraging: repay the debt with available cash, issue shares and pay the debt
+			debt is cheaper than equity
+			If you have liquidity problem and unable to raise money, you will in trouble
+			equity - promise -  no contractual obligation
+			debt - obligated - contractual obligation
+			environment is uncertain - raise equity and pay off the debt
+
+	Meryll lynch survey
+	deleverage the balance sheet- clear off the debt and improve the ratings
+	
+	debt restructuring - startegy driven - good days - less painful; prepay the debt, take fresh loans
+			     crisis driven - crisis - painful - haircut
+	
+	Equity restructuring - paying : special dividend, shares buy back, stock splits, bonus shares
+			       surplus cash - special dividend or buy back shares? buy back shares.
+			       if shares are under valued company - surplus cash, it has to distribute shares to the share holders. which choice is better?
+			       pay dividend - share price goes down
+				buy back shares - sending a signal to the market that you are confident about the future.
+				surplus cash to invest in their own shares - technical correction and siganl of strong confidence to indicate the best time to buy shares
+				holding esop - stocks - then surplu cash - what do you do?
+				here also share buy back. dividend - share price goes down
+				debt equity goes up in dividends - 0.5 to 1:1
+	According to Behavioural exonomics theory
+	Investors always prefer dividends, they don't prepfer buyback. Two explanations
+	dividends -self control theory - Richard taylors proposition - less self control in consumption. Companies should control the consumption pattern
+		  - prospect theory  - kaneman proposition 
+	
+dAY2:
+	Share repurchase and external financing
+	Borrrow money from local US markets than outside (europe tax issue) and buy back shares
+	Debt equity ratio goes up as debt is constant but equity reduces but regulations play a role. it should not exceed 2:1
+	Buying back shares - tender offer outside exchange - SEBI rules - promoters did not participate 
+	Eg:1 Akzo Nobel (tender offer)
+	Eg:2 Britannia (from market, 2003)
+		stated intention: Sending out not desired share holders by buing back shares
+		Increasing stake in company - buy back shares; decrease in number of stake holders
+		Real intention: Fear of taken away - increase stake in company
+	why not dividends:  Special dividends:  dividends are sticky, expectation of shareholders go wrong
+			    servicing number of share holders will remain same
+	
+	Bonus shares: no cash flow but 1:1 rewarding share holder? share price go down
+		      short term effect: volume of trading goes up, demand goes up, share price goes up
+		      long-term  effect: paying dividends- creates obligation to pay dividends in long term
+		      face value remains same 		
+Stock splits: face value get splits, value goes down, you will have more number of shares, but capital remains same
+	      why do firm splits stocks? 10 rs share becomes 2 rs 5 shares in stock split. Nominal value is same.
+		
+		theory1: + signal to the mkt about their future prospects
+			retail investors get the shares, promoters love to have retail investors as they don't ask questions unline institu.. investors
+		reason for stock split; liquidity
+		theory2: liquidity increases post split, not to send signal to the mkt
+
+		Split vs Non-split:
+		
+		it does not support:
+				ROI is reducing for both split vs non-split companies
+				split firms are performing better than non-split firms
+				Difference is significantly +ve
+				Firms that perform better are preferred to split, post split it may continue as is 
+				turnover of share increases
+
+		Creating wealth for share holder in long run can improve rel. with share holders.
+
+is there single indicator, which captures all 3 activities together? all three can be collapsed, highly correlatted with mkt value
+		
+Economic Value (EVA) added :  stan stuwards company, simple to implement, became very poular
+			   Pizzeria story: 2 questions at the bottom of the story
+			   
+			   No economic surplus, as per book you made a profit
+			   Opportunity cost: you consider profit only when you made economic profit (after opportunity cost)
+			   compare accnting profit (Net operating profit after tax) with economic profit and earned more than the opportunity cost?
+                           Economic proit/capital charge/opportunity cost = 1,000000- 82,750 = 18,250
+			  
+
+			Net operating profit after tax (NOPAT) = EBIT (1-t)
+							NOPAT = PnL, t - effective tax rate
+					Capital (comes from balance sheet) = Invested capital = Net worth + Interest bearing debt - investments
+					Alternatively, invested capital = Non-current assets + current assets  - current liabilities (other than short-term borrowing) - investments
+			
+			Not from Balance sheet
+
+			C* (cost of capital) = minimum return you expect to earn 
+						opportunity cost of the investment /required rate of return/hurdle rate
+			Capital charged = minimum profit required
+
+			EVA (economic value added) = NOPAT - Capital charged
+			
+			EVA = NOPAT- (C* Capital charged)
+			EVA/capital = NOPAT/Capital - (C*Xcapital charged)/Capital
+			EVA/Capital = ROI - C*
+			EVA =  (ROI - C*)*Xcapital
+			    = EVA spread	
+
+			Destroying EVA = destroying eva share holder value
+			
+			EVA mirrors MVA within the firm
+			
+			EVA vs Other measures
+			Standardized EVA, return on equity, most admired, Cash flow growth, EPS growth, Dividend growth, sales growth
+			Single industry exhibit a correlation as high as 0.7 - 0.8 for EVA
+
+Four fundamental strategies to improve EVA
+			operate - improve the returns on caital
+			build - invest as long as returns exceed the cost of capital
+			harvest - divest capital when the returns fail to achive the cost of the capital
+			optimize - reduce cost of capital by optimizing capital structure
+
+EVA Leverage Factor -  the expected deviation of EVA from the average EVA 
+		    - The leverage factor actually measures the volatality of industry returns
+
+EVA-linked compensation and performance awards
+			company performance factor = 1.00 + (actual EVA - target EVA)/ Leverage factor
+			individual performance factor
+
+Example companies where EVA is - ve:
+
+Enron :  Focus was on earnings and EPS
+	 EVA profit was crashing
+Worldcom : EVA was negative
+
+Capital Budgeting: Long term investment decision
+		
+capital budgeting: analysis of potential additions to fixed assets
+		   long-term decisions invlove larger expenditures
+		   very important to firm's future
+
+Issues in ivnestement in Infrastructure: irreversible, longer gestation period, demand side risks, role of regulators, taxation issues
+Stages in capital budgeting: capital budgeting is an ongoing process
+		1. Investment screening and selection
+		2. Capital budget proposal
+		3. Budgeting approval and authoriation
+		4. Project tracking
+		5. Post-completion audit
+Financial appraisal tools
+		1. accounting rate of return
+		2. payback method
+		3. discounted payback method
+		4. NPV
+			Incremental after-tax cash flows
+			CFAT = EBIT - Tax + depreciation  and amortization - CapitalEx - (CA(excl. short investments)-CL(excl borrowings))
+			CA = current assets
+			CL = current liabilities
+			NPV break even where NPV = cost
+			npv =0 AT K is called IRR, gives you 0 NPV
+
+			NPV fails when limitation in capital constraint - funds not available
+		5. IRR
+			Project IRR
+			Equity IRR
+		6. Profitablity Index
+			PI = NPV (all cash inflows subsequent to the initial ivnestment)/initial investment
+			PI = PV of benefits / PV of costs
+			PI is useful for capital rationing otherwise we use NPV
+			accept investment only when PI > 1.0
+payback period: project cost recovery period
+		adv: indication of project's risk and liquidity
+		     easy to calculate and understand
+		dis: ignores CFs after payback period, ignores TVM.	
+discounted payback: Uses discounted rather than the raw CFs
+
+capital rationing: used when many projects has +ve NPA but no funds available. this can be solved using linear programming
+		  
+Capital budgeting and Risk analysis:
+-----------------------------------
+sensitivity analysis - what if analysis: change one variable at a time keeping others constant
+demand -  what if demand falls by 5%
+selling price - 350 - falls by 5%
+raw material cost - 190 - up by 5%
+
+base case IRR - 17%
+revised IRR -14% , down by 3% due to changes in demand fall 5%
+revised IRR - 3% ,  down by 14% due to change in selling price by 5%
+revised IRR - 6%   ,  down by 11% due to up by 5% in raw materials
+
+selling price is more sensitive - what do you do to make porject finacnially viable?
+				1. look at cost side - talk to suppliers, make agreements based on selling price. pass costs partly to vendors/suppliers
+Demand is more sensitive - goes down : what you would have done..  
+				1. cost is bottom line .  play volume game (sign long term volume contract and offer volume discount and satisfy 50% of your capacity) with potential customers.
+
+scenario analysis: effects many variables at a time
+	scenario1: gdp growth - 5%
+	scenario2: gdp growth - 15%
+	scenario3: gdp growth - -ve %
+	Capex - more sensitive variable than Opex variable
+	Fixed price contract is the startaegy to handle the Capex sensitive varaible
+
+simulation analysis - Monte carlo simulation	- iBall software	
+	many variables
+	provide range of values to these variables (crude price) -  20-40
+	Run simulation - 10k runs and get cash flows
+	Run1: Cash flow of 1st, 2nd, 3rd, ... 25th year -  CF1
+	Run2: some other range of prices  -  CF2
+	..
+	Run25:  ,,,                       -  CF25
+	Take avergae (expected value, avg of 10k CF1s), standard deviation, coeeficients of variation
+	
+	Expected NPV = ??
+	
+	
+		
+Day 3: Financial decisions making
+	Source of funds
+	credit rating, minimze defaulting
+	Case analysis: Bians Dept profile changed	 - future group
+			replaced public debt with private debt 	
+			saved from default in redemption
+			went to the private market , raised money and paid the public debt			
+			not saving costs. not seen as defaulter
+			Reasons: Most of the bedt got it from public institutions, as security to the debt, they did not promise the lands.
+			They pledged the shares of the promoters hold and also pldedged the investments made in other blue chip companies to the banks
+			The mkt value of shares should be more than the debt for pledging
+			The value of the pldedged shares have been going down. Bank says return the money
+			More security cover - value of shares should be double than the loan
+			Biayani Pledged shares to pvt market
+
+	How to get funds?
+	
+	Cost of capital: K
+	Opportunity cost of capital/hurdle rate/Minimum expected return (C*)
+	K is not same for all business units in a single company - expected return varies from one business to another
+	
+	K is function of (Business level risk and Financial Risk)
+	
+	Estimation of following 3 
+	1. source of capital
+	2. Respective weights of debt and equity
+	3. Cost of each source
+			
+	
+	1. cost of debt - historical cost - does not tell what rate company can borrow in next year
+		a. Direct approach: from the PnL and Balance sheet calculate 
+				The avg borrowing cost = interest expense / avg orrowing durin the year
+				Expected cost of Debt E(Kd) = Rf + DRP
+					where Rf - risk free rate of return
+					      DRP - default risk premium 
+					      DRP  is a function of credit rating of the borrower
+					10 year debt? RF = 10 year GOI Bond yield	
+		b. Weighted Avg method: 		
+			  
+	2. Cost of equity (CAPM) - is never an explicit cost but always the opportunity cost
+			  - is the expectation of marginal equity investor
+			 
+		what is your equity Beta?
+				Stock Market Index - market portpolio index
+				Sensitivity of a stock's return to the return on the stock market portpolio
+
+				E(Ke) = Rf + Beta * Market Risk Premium (MRP)
+				MRP = E(RM) - Rf   ( using historical data of more than one year 15-20 years data)
+
+				Beta = Cov (Ri, RM) / Var (RM) =  sigmai ^2/ sigmaM ^2
+				
+		Look at average beta estimates of comparable firms in the industry
+		Betas are generally stable for firms remaining in the same industry.
+		Betas can change due to 
+				Changes in product line
+				Changes in technology
+				Deregulation
+				Changes in financial leverage
+		Firms Beta vs Industry Beta (similarity in operations in industries - industry Beta, otherwise firm Beta)
+		1. Highly cyclical stocks have higher betas
+		2. The degree of operating leverage: measures how sensitive a firm (or project) is to its fixed costs. 
+			a. Operating leverage increases as fixed costs rise and variable costs fall.
+			b. Operating leverage magnifies the effect of cyclicality on beta.
+			The degree of operating leverage is given by
+				DOL = Delta EBIT/EBIT * Delta Sales/ Sales
+			
+		Beta Asset =  (Debt/Debt + Equity ) *Beta-Debt + (Equity/Debt + Equity ) *Beta-Equity
+		
+		Financial leverage always increases the equity beta relative to the asset beta
+		
+		unlever Beta = equity Beta / (1+D/E)
+		Relever Beta = unlever Beta * ( 1 + D/E)
+		
+				    	
+
+
+					 		
+
+

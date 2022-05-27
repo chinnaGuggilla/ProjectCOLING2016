@@ -1,0 +1,66 @@
+
+Destructuve testing																	
+Panel data																	
+Population																	
+Sampling																	
+Simple random selection			equal chance														
+convinient sampling - bias			deal with systematic bias				min samples - 30		Central limit theorem								
+Point estimate  - use sample mean to estimate the unknown population mean																	
+confidence interval -    when confidence is low in deciding single value go for a range									0 to infinity								
+																	
+0% of confidence interval			in average														
+																	
+95% confidence interval			commonly used % in confidence intervals														
+90%																	
+99%																	
+																	
+In case of profit  - mean make sense																	
+mean make sense if you are looking at medium level income/variable																	
+																	
+How to get confidence itnervals?																	
+																	
+     	x'+/-  Z * sigma/sqrt(N)				larger the confidence wider the interval												
+																	
+	1.96    -  95%																
+	1.645   - 90																
+	2.576 - 99%																
+																	
+	x1 - sample poulation																
+																	
+controlling for variables -  within the same group, people react to different things																	
+																	
+Regression analysis			predict some value														
+			predictor variables							y=a+b*online							
+Simple linear regression   - linear function of these variables						Dependent variable											
+						Independent variable											
+Beta = 0  weights are zero																	
+																	
+Hypothesis testing			null hypothesis		Ho	b	0					reject hypothesis		do not reject the hypothesis			
+			Alternate Hypothesis		H1/Ha	b	not 0										
+									consturct confidence level						h0 true	h0 false	
+			level of significance		error of tolerance		alpha							reject	error		type-I error
+														not reject 		error	type-II error
+
+
+
+profit = intercept + b1*online + b1*age
+
+decide sample size based on the width of the confidence interval
+
+
+How would we chose optimal interval width with higher confidence ? is 95% confidence interval is optimal and standard one?
+
+
+Day 3:  05/04/2020
+
+Significance F value >0 indicates that
+     Independent variables are not useful
+      non linear relationships
+
+Drop the variable if p-value >0.5 and rerun the regression. coefficient values changes
+
+R^2 = 1 highest coefficient determination
+
+With other variables R^2 value would get to 98%
+
+

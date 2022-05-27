@@ -1,0 +1,85 @@
+Day 5 - Forecasting
+
+trend - consistent increase and consistet decrease for aparticular period of time
+
+step1 - draw the time series
+		Demand Vs time
+step2 - Identify the pattern
+		Trend :
+				Forma t axis -  6, 12, 18, spikes
+				
+		seasonality - regular patterns
+				Demand is seasonal - 4, 8, 12 - down spikes
+				Intervals are regular
+		Random pattern - horizontal pattern: 
+				Constant unknown average demand with unknwon factors
+		Horizontal pattern with level shift
+				Sudden change in average due to added inputs
+		Cyclical pattern
+				- length of the intervals are not fixed
+				- 
+
+Forecasting methods:
+		Qualitative methods
+		When launching brand new category of product - no history available
+		Ex: Apple smart watch
+		Quantitative methods
+		historical data , patterns in the past likely to holds good in future
+		
+		Forecasting won't be accurate
+		
+Accuracy of forecasts:
+		
+One-step forecast: Use 1 month data and make forecast for 2nd month, then use 1st and 2nd month data and make forecast for 3rd month.
+Compare accuracy of different forecasting methods:   
+	MAD: Mean absolute Deviation
+	MSE: Mean squared error
+	MAPE: Mean absolute percentage error: can be used to compare forecasts for different categories
+	Forecasts -  5kg packets, sachets , the impact of errors will be different on packets than the sachets
+	depends on base - base can be changed from last year to current year, the impact of error will be different
+	Bases are different then use MAPE compared to MAD or MSE
+	Across SKUS, across products and across categories
+	
+	MAD vs MSE
+	Binary decision Vs reward based decisions
+	MSE have similar errors - punishes errors
+	MSE in FMCG, inventory
+	Huge deviations are bad for you.
+	correct or incorrect then MAD make sense irrespective of deviations or fwar away of two errors
+
+Exercise 2: Salt data	
+Horizontal pattern - No consistent pattern, there is unknown average
+		     Salt demand does not chnage drastically
+		     Overfit - error metrics can be 0 but foreacst may not correct
+		     Randomness will be there
+	what forecasting method we use? how to get the forecast for week 13.
+	One-step forecast,  average is unknown
+	(Naive forecast method) - Not very impressive method
+	Disadvantage: Error increases week by week. Kagging by one week
+	Average method: compute average between previous and current value
+	Avg method is better than Naive method, values are greater than naive method
+		Coming  closer and closer to horizontal line
+
+Horizontal pattern with level shift:	
+	sudden change in particular period of time - level change
+	could be due to randomness or systematic pattern	
+	moving average method :
+		It would take some time to keep with level change values - longer it would take to pick up the average
+		last k- recent values
+	exponential smoothing:
+		level - k: average of 1/3rd or 1/2 of data
+		adjusting level: previous level + alpha (smoothing parameter , 0.5, 0<alpha<1) * error
+
+                
+
+	
+		
+		
+	
+	
+		
+	
+	
+
+	
+		   			

@@ -1,0 +1,157 @@
+Developing and executing a strategic plan
+-----------------------------------------
+Car dag race - industries at different contexts with same attributes exhibit different performances
+Different industries Profitability
+
+Porter five forces of industry
+
+	threat of new entrats			threat of substitutes
+	
+	
+						Industry rivalry
+						
+	
+	bargaining power of supplier	bargaining power of buyers
+	
+	customer switching costs
+	forward integration
+	backward integration
+	
+	low entry barriers and low exit barriers	-	low returns
+	high entry barriers and low exit barriers - best case
+	high entry barriers and high exit barriers - high returns but risky
+	low entry barriers and high exit barriers -  worst case
+
+Strategies - apply
+	positioning in the market
+	exploiting industry change
+	shaping industry structure
+	
+Common Myths
+1.	Fast growing industries are inherantly attractive ( attractive - long-term profitability of the industries)
+	growth rate - one parameter attractive porter 5 forces
+	high growth rate - tendency to reduce rivalary in the industry
+					 - supplier bragaianing power increases 
+					 - assume industry as an aggregate
+					 - first mover advantage
+
+	https://www.mogelrpo.com/blog/8-rapid-growth-business-myths-busted/
+	
+2. Govt involvement makes an industry un/attractive
+
+3. Technology and innovation makes an industry structurally attractive
+
+4. Discounted importance of complementary products and services
+
+cola-pepsi
+       1881-1920		1921 -1970
+	   1980 - 2000       2000  onwards
+	   5 -forces
+				Bargaining power of sulpliers - low	
+				threat of new entrantas - low , high bargaining power of buyers, medium power of substitutes
+				industry rivalary - high
+				
+Matching dell case
+	Modal zero - stripdown versions of PC to give customization capability to distributors
+	
+	Bargaining power of suppliers (Microprocessor, Windows) - exremly high, drivedown the potential of profitability
+	Threat of new entrants - high, barriers of entry - low
+		pc industries - propritery know how less
+
+		large no of whitebox manufacturers - glorified assemblers
+	Bargaining power of buyers - moderate to high
+				large,medium size businesses and government			
+
+				consumers
+				
+				channels - distributors/reseller
+						 - retail - consumers
+						 - direct:  5% margins, retail: -3%
+				low switching costs
+	Threat of substitutes - low in 1990s, no prominent substitutes for PC industry
+	
+	Industry rivalry -  high
+					raw materials - micro processor
+					prices  -  
+					commodity /differentiating products - low , rivalry is high
+	
+	1990s: Un attractive industry to operate as 4 forces are high
+	
+						
+	MS and Intel help shape the customer segments
+			- bargaining power of suppliers increases
+			- massively increasing industry rivalry - no differentiation
+			- threat of new entrants - high
+			
+	mis-steps :  20 years down the line - unattractive
+	
+	value chain: all the activities that create value-chain for individual organization 
+					primary activies : sequentially under taken, creating and delivering value to the end customers directly
+										conventional manufacturing : inbound logistics, operations, outbound logistics, marketing and sales, after-sales services
+					support activities :  help in creating ecosystem for all the primary activities, no sequence, HR management, finance and control, firm infrastructure etc
+					Eg: Asian paints
+						treasury operations - support activity
+					Eg: Life insurance company
+						claims, payments, bonus - part of primary activity
+						sequence of activities
+	
+	
+	inbound logistics
+	operations
+	outbound logistics
+	
+	Reddys: UCB acuqisition - bolton aqcuistion
+			atarax molecule changes - new capability adapted to existing value chain
+	
+	sourcing of compeititness lies in core value chain
+	
+    disney: an additional new value add in case of walt disney case
+	
+	Apple: differentiation strategy
+		    basis of differentiation startegy: consistenly delivering AHA effect
+			
+	
+	
+	corporate startegies
+	
+			portfolio and structure management
+			resource transfer and activity alignment
+	
+	Portofolio and restructure mgmt
+	BCG matrix
+			does not consider industry dynamics
+			dog or * ? spin-off/liquidate
+			does not capture firm-level relationships/connections
+			
+	Walt disney case: theme parks, resort, animated entertainment: diversified company
+			disney entered new businesses
+		strategic challenges
+			managing synargies
+			managing brand
+			managing creativity
+		
+		operating expenses pumped up - more employees - operation efficiencies
+		multiple businesses - low asset utilization (idle assets)
+		plummeting numbers - ROI (12% to 2% dropdown)
+		ROE - 15% to 4%  
+		(primary shareholders reducing bonus to Esiner)
+		
+		what are the theme parks? joy rides, eating, movies, cartoon characters/animated movies, walk in castles etc,
+		determines the revenue? ticket price is higher than the competitiors, bloc-buster animated movies have come down (success of theme parks)
+		
+		merchandize to disney stores: one of the high margin businesses
+		
+		brand is in question? adult merchandizes - parents hesitate to buy the products
+		
+		ABC acuqisition and other forays company into - organizational peformance - has came down
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+	

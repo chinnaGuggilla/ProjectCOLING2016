@@ -1,0 +1,84 @@
+Regression:
+Should they charge a fee or give a rebate for use of the online channel?
+online customers are more profitable?
+
+Summary statistics:
+    customers: 5 million
+	sample size: 31634 (less than 1% of the customers !0.63%)
+	Total profit: $35,27276
+	Avg profit per customer: $111.50
+	std: $272.83 - Always use std while quoting the average 
+
+standard deviation: some customers more profitable and some are less profitable- high variablity
+If high variability - don't trust just the average
+
+Sample: subset of the totoal population
+Larger the samples the better the estimates
+population is : set of all the elements that the study is interested
+
+Draw inferences: as long as drawan sample is representative enoughs of total population. 
+we can draw inferences closer to the total population and will be free from bias.
+
+Sampling and Estimation:
+Simple random sampling: equal chances of any memeber being present in the drawn sample
+stratifiedified sampling:  Not every memeber of the population is similar
+        Male and female pay disparity: picking samples from Male(60/100) and Famale(40/100) categories. 
+		Picking samples individually from corresponding categories is again the simple random sampling
+
+Estimating population parameters:  average, percentages (%) (election), std
+Sample estimates: compute avg of the sample and use it for estimating for population
+	point estimates: avg work Ex of a SMP-16 batch can be computed from randomly drawn samples say 5 samples
+					 avg 14.5 std 5, avg 17, std 2 of two different samples
+					 Sample mean: Avg profit per customer: $111.50 in our use case - piligrim bank
+	interval estimates: confidence intervals: provides a range within which real population mean is likely to lie.
+					 cost of being wrong is very high - widest possibilities in case of the range
+					 what are the chances that the average customer profit considreling all of the 6 million customers is same as $111.50 ?
+					 probability/confidence: 0
+					 confidence: probablity that the interval contains the real mean
+								 higher the confidence the more chances of contating the real mean
+	interval range: wider the range the lesser help it provides in decision making, the narrower the better.
+					decision differs based on range of the intervals
+					the more accuracy  the widest the interval Eg: 99%  ; with 90% the interval is narrower
+					tradeoff between confidence intervals and width
+					lower confidence limit and upper confidence limit Eg: 200 is lower and 210 is higher confidence limits in the range [200,210]
+					confidence levels: 95%,90%,99%
+					
+					confidence interval comes from central limit theorem - standard normal distribution
+					If decision differs at lower and higher level limits then it is too wide.
+	
+
+Exploratory data analysis:
+
+profitable customers: 16832 (53%)
+				47% are loss making - pulling the total and average profit down
+				Telcom and airline industries are making losses
+				how do we chose profit making customers?  based on historical transaction, revenue, profit etc
+				how do you serve loss making customers? calls unattended, levy high charges, limiting online offers
+profit distribution:
+				profitable customers have high variation
+				
+				
+scatter plot:  linear or non-linear relationship between dependent and predictor variables
+
+
+
+
+				
+				
+				
+
+
+	
+					 
+
+            
+
+
+
+
+
+
+
+
+
+	
