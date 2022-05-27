@@ -1,0 +1,118 @@
+$('html').css({'font-size':'10px'});
+
+$('#GlobalNaviTop>li').hover(function() {
+  $(this).toggleClass('mmenabled');
+  $(this).find('div.mm').toggle();
+});
+
+$('#GlobalNaviTopButtonSP').click(function() {
+  toggleDropdown($(this), $('#UltraGlobalNavi'));
+});
+
+$('#Search>.BtnOpen>a').click(function() {
+  toggleDropdown($(this), $('#SearchArea'));
+});
+
+function toggleDropdown(toggle, nav) {
+  var thisObj = $(this),
+      winWidth = $(window).width();
+
+  toggle.stop(true);
+  nav.stop(true);
+
+  if (!toggle.hasClass('Current')) {
+    if (nav.is('#UltraGlobalNavi')) {
+      $('#SearchArea').animate({'height':0}, 350, function(){
+        $('#SearchArea').hide();
+      });
+    }
+    else {
+      if (winWidth < 768) {
+        $('#UltraGlobalNavi').animate({'height':0}, 350, function(){
+          $('#UltraGlobalNavi').attr('style','');
+        });
+      }
+    }
+
+    $('.Current').not(toggle).removeClass('Current');
+
+    nav.show();
+
+    var navHeight = 0;
+    nav.children().each(function(){
+      if ($(this).is(':visible')) {
+        navHeight += $(this).outerHeight();
+      }
+    });
+
+    nav.animate({'height':navHeight},350, function () {
+      $('#UltraGlobalNavi').css({'overflow':'hidden'});
+    });
+    $('#HeaderArea').animate({'margin-bottom':navHeight},350);
+
+
+    toggle.addClass('Current');
+  }
+  else {
+    $('#HeaderArea').animate({'margin-bottom':0},350);
+    nav.animate({'height':0}, 350, function(){
+      nav.attr('style','');
+      toggle.removeClass('Current');
+    });
+  }
+}
+
+$('#GlobalNaviTopSP>li>a').click(function(e) {
+  var winWidth = $(window).width(),
+      thisObj = $(this),
+      thisSub = thisObj.next('div.mm');
+
+  if (winWidth < 768) {
+    e.preventDefault();
+
+    if (thisObj.hasClass('open checked')) {
+      thisObj.removeClass('open checked');
+      thisSub.slideUp();
+      
+      thisSub.find('.cloned').remove();
+    }
+    else {
+      $('#GlobalNaviTopSP>li>a').not(thisObj).removeClass('open checked');
+      $('#GlobalNaviTopSP>li>div.mm').not(thisSub).slideUp();
+      
+      thisObj.closest('li').clone().prependTo(thisSub.find('ul')).addClass('cloned');
+      thisObj.addClass('open checked');
+      thisSub.slideDown();
+    }
+  }
+});
+
+$('#Search .BtnClose').click(function() {
+  $('#HeaderArea').animate({'margin-bottom':0},350);
+    $('#SearchArea').animate({'height':0}, 350, function(){
+      $('#SearchArea').hide();
+      $('#Search>.BtnOpen>a').removeClass('Current');
+    });
+});
+
+var protocol = location.protocol;
+var url = protocol+'//www.hitachiconsulting.com/search.html?searchTxt=';
+var $input = $('#searchTxt');
+var $button = $('#toggleSearch');
+
+$button.click(function(){
+  if($input.val() != ''){
+    location.href = url + $input.val();
+  }
+});
+
+$input.keyup(function(e) {
+  e.preventDefault();
+
+  var code = e.which,
+      thisObj = this;
+
+  if(code==13 && $input.val()!='') {
+    location.href = url + $input.val();
+  }
+});

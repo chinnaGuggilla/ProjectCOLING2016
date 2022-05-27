@@ -1,0 +1,57 @@
+var PassleCookieControlPlugin;
+(function (PassleCookieControlPlugin) {
+    var PassleCookieControlOptions = (function () {
+        function PassleCookieControlOptions(backgroundColor) {
+            this.backgroundColor = backgroundColor;
+        }
+        return PassleCookieControlOptions;
+    }());
+    PassleCookieControlPlugin.PassleCookieControlOptions = PassleCookieControlOptions;
+    var CookieControl = (function () {
+        function CookieControl(options) {
+            this.options = options;
+            this.Initialise();
+        }
+        CookieControl.prototype.Initialise = function () {
+            var cacheBustString = Math.floor(Date.now() / 100000);
+            var scrptEl = jQuery("[data-passleenv]")[0];
+            var root = scrptEl ? jQuery(scrptEl).attr('data-passleenv') : "sdk.passle.net";
+            var url = "//" + root + "/PluginBundles/v1.2/js/CookieControl?" + cacheBustString;
+            this.GetScripts(url);
+        };
+        CookieControl.prototype.GetScripts = function (bundleUrl) {
+            var getscriptOpts = {
+                dataType: "script",
+                cache: true,
+                url: bundleUrl,
+                success: function () {
+                },
+                error: function (jqXHR, settings, exception) {
+                    console.log("Passle cookie control script load failed");
+                    if (jqXHR) {
+                        console.log(jqXHR);
+                    }
+                    else if (exception) {
+                        console.log("Exception: " + exception);
+                    }
+                    else {
+                        console.log("No error response returned");
+                    }
+                }
+            };
+            jQuery.ajax(getscriptOpts);
+        };
+        return CookieControl;
+    }());
+    PassleCookieControlPlugin.CookieControl = CookieControl;
+})(PassleCookieControlPlugin || (PassleCookieControlPlugin = {}));
+(function ($) {
+    $.extend({
+        passleCookieControl: function (opts) {
+            var defaults = new PassleCookieControlPlugin.PassleCookieControlOptions('#0F0');
+            var opts = $.extend({}, defaults, opts);
+            new PassleCookieControlPlugin.CookieControl(opts);
+        }
+    });
+})(jQuery);
+$.passleCookieControl();

@@ -1,0 +1,110 @@
+/**
+ * 
+ * @author Narendra Pundir
+ * @category you can send OTP to user and submit Lead form using AJAX
+ * @created 23-Sep-2016
+ */
+
+function getOTP() {
+
+	var mobile = $("#mobile").val();
+	var randomNumber = $("#randomNumber").val();
+	var emailObj = $("#email").val();
+	$('#ajax-loader').attr('style', 'block');
+	var success = "Thank you for filling up the form";
+	var fail = "The verification code entered is incorrect. Please enter the correct code.";
+
+	$.post('/iw-cc/mmi/Education/jagranjosh/register/OTPManager.jsp', {
+		mobile : mobile,
+		randomNumber : randomNumber
+	}, function(responseJson) {
+		responseJson = $.trim(responseJson);
+		if (responseJson == 'true') {
+			$('#ajax-loader').hide();
+			$("#mobilemessageForm").html(success);
+			$('#leadForm')[0].reset();
+			$(".Mob_veryfy").slideToggle();
+			$("#randomNumber").val("");
+		} else if (responseJson == 'false') {
+			$('#ajax-loader').hide();
+			$("#mobilemessageForm").html(fail);
+		}
+
+	});
+}
+
+function submitForm() {
+	var source = window.location.href;
+	var nameTextField = $("#username").val();
+	var dobObj = $('#day').val() + '-' + $('#month').val() + '-'
+			+ $('#year').val();
+
+	var mobileTextObj = $("#mobile").val();
+	$("#usermobile").text(mobileTextObj);
+
+	var emailObj = $("#email").val();
+	var sexObj = $('input[name=sex]:checked').val();
+	var privacyConsent = '0';
+	if ($('#privacyConsent').is(':checked')) {
+		privacyConsent = '1';
+	}
+	var alertConsent = '0';
+	if ($('#alertConsent').is(':checked')) {
+		alertConsent = '1';
+	}
+	
+	var newsletterObj = $('input[name=newsletter]:checked').val();
+
+	var countryobj = "3";
+	var stateobj = $("#state").val();
+	var cityobj = $("#city").val();
+	var pageName = $("#pagename").val();
+	var cat = $("div.breadcrum > ol > li:nth-child(2)").text().trim();
+	if(cat != '')
+		pageName = pageName + '_' + cat;
+
+	var coursesArry = new Array();
+
+	$("#select_box li input:checked").each(function() {
+		coursesArry.push($(this).val());
+	});
+	var otherCourse = $("#hidden_lang").val();
+
+	var coursesObj = '';
+
+	coursesObj += coursesArry;
+
+	$('#dosubmit').hide();
+	$('#ajax-loader').attr('style', 'block');
+
+	$.post('/iw-cc/mmi/Education/jagranjosh/register/userRegistration.jsp', {
+		username : nameTextField,
+		dob : dobObj,
+		email : emailObj,
+		pagename : pageName,
+		country : countryobj,
+		state : stateobj,
+		city : cityobj,
+		mobile : mobileTextObj,
+		exams : coursesObj,
+		sex : sexObj,
+		privacyConsent : privacyConsent,
+		alertConsent : alertConsent,
+		newsLetter : newsletterObj
+	}, function(responseJson) {
+		responseJson = $.trim(responseJson);
+		if (responseJson == "NA" || responseJson == "found") {
+			$('#ajax-loader').hide();
+			$(".Mob_veryfy").slideToggle();
+		} else if (responseJson = "ok") {
+			$('#leadForm')[0].reset();
+			$('#ajax-loader').hide();
+			$('#thank_you').text("Thank you for registering with us.");
+
+		} else {
+			$('#ajax-loader').hide();
+			$('#thank_you').text("Error in registration.");
+		}
+
+	});
+}

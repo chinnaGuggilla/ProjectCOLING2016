@@ -1,0 +1,1133 @@
+body
+{
+margin:0;
+}
+a,
+a:link,
+a:visited,
+a:hover {
+	text-decoration:none;
+}
+
+.menu
+{
+font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.menu:hover
+{
+color:#000000;
+}
+
+.sidemenublue
+{
+	font-family: Georgia, Verdana,Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	font-size:12px;
+	text-decoration:none;
+	font-weight: bold;
+}
+.sidemenublue_sub
+{
+font-family: Georgia, Arial, Verdana, Helvetica, sans-serif;
+color:#365f91;
+font-size:14px;
+text-decoration:none;
+height:30px;
+font-weight:bold;
+}
+.current_sub
+{
+	font-family: Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#365f91;
+	font-size:13px;
+	text-decoration:none;
+	font-weight: bold;
+}
+.new
+{
+	font-family: Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#ff0000;
+	font-size:15px;
+	text-decoration:none;
+	font-weight: normal;
+	line-height: 30px;
+}
+.voc
+{
+	font-family:Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#6FA231;
+	font-size:20px;
+	font-weight: bold;
+}
+.voc_sub
+{
+	font-family:Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#6FA231;
+	font-size:16px;
+	font-weight: bold;
+	line-height: 30px;
+}
+.qust
+{
+	font-family:Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#365f95;
+	font-size:16px;
+	font-weight: bold;
+}
+.qust_sub
+{
+	font-family:Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color:#365f95;
+	font-size:16px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.headline
+{
+	font-family:Georgia, Arial, Verdana, Helvetica, sans-serif;
+	color: White;
+	font-size:14px;
+	text-decoration:none;
+	line-height:180%;
+	font-weight:bold;
+}
+
+
+
+.headlineb
+{
+	font-family:Georgia, Verdana,Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:12px;
+	text-decoration:none;
+	font-weight:bold;
+	line-height: 30px;
+	vertical-align:middle ;
+}
+
+
+.bodytexttel
+{
+	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+.bodytext
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:13.5px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:justify;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.bodytext a {
+	text-decoration: none;
+	color:#313131; padding-left:15px;
+	}
+	
+.bodytext a:link, .bodytext a:visited {
+	text-decoration: none;
+	color:#313131; padding-left:15px;
+	}
+	
+.bodytext a:hover {
+	text-decoration: none;
+	color:#900;
+	}
+	
+	
+	
+
+
+.comic
+{
+	font-family: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+	font-size:14px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:justify;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.comic a {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.comic a:link, .comic a:visited {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.comic a:hover {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+	
+	
+.comic16
+{
+	font-family: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+	font-size:16px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.comic16 a {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.comic16 a:link, .comic16 a:visited {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.comic16 a:hover {
+	text-decoration: none;
+	color: maroon;
+	}
+
+
+
+
+
+
+.writer
+{
+	font-family: Georgia, Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	text-decoration:none;
+	line-height:180%;
+	text-align:justify;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.writerh
+{
+	font-family: Georgia, Calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	text-decoration:none;
+	font-weight:bold;
+	line-height:180%;
+	color: Navy;
+	text-align:justify;
+	padding: 0;
+}
+
+
+.bodytextt
+{
+	font-family:Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:justify;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.headlineeng
+{
+font-family:Georgia, Verdana,Arial, Helvetica, sans-serif;
+font-size:12px;
+color: white;
+line-height:200%;
+text-decoration:none;
+font-weight:bold;
+}
+
+.introeng
+{
+font-family:Georgia, Verdana,Arial, Helvetica, sans-serif;
+font-size:12px;
+color: #0066FF;
+text-decoration:none;
+font-weight:bold;
+line-height:150%;
+text-align:justify;
+padding-left: 10px;
+padding-bottom: 0px;
+padding-top: 10px;
+padding-right: 10px;
+}
+
+.mattereng
+{
+font-family:Georgia, Verdana,Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+}
+
+
+.heading
+{
+    font-family:Georgia, Times New Roman;
+    font-size:14px;
+    text-align:left;
+    font-style:normal ;
+   font-weight:bold ;
+}
+.matter
+{
+    font-family:Georgia, Verdana,Arial, Helvetica, 'Times New Roman', sans-serif;
+    font-size:14px;
+    text-align:left;
+    font-style:normal ;
+    font-weight:normal ;
+}
+
+
+.bque{
+    PADDING-RIGHT: 15px;
+    PADDING-LEFT: 15px;
+    PADDING-TOP: 0px;
+    PADDING-BOTTOM: 0px;
+    font-family: Georgia, Verdana,Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    color: #002D92;  /* #ff6633  */
+    text-decoration: none;
+}
+
+.bans0{
+    PADDING-RIGHT: 15px;
+    PADDING-LEFT: 15px;
+    PADDING-TOP: 15px;
+    PADDING-BOTTOM: 0px;
+    font-family: Georgia, Verdana,Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    font-weight: normal;
+    text-indent: 0px;
+    font-variant: normal;
+    text-transform: none;
+    color: black;  /* #ff6633  */
+    text-decoration: none;
+}
+
+.bans{
+    PADDING-RIGHT: 15px;
+    PADDING-LEFT: 15px;
+    PADDING-TOP: 15px;
+    PADDING-BOTTOM: 0px;
+    font-family:Georgia, Verdana,Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    font-weight: normal;
+    text-indent: 50px;
+    font-variant: normal;
+    text-transform: none;
+    color: black;  /* #ff6633  */
+    text-decoration: none;
+}
+
+.right{
+    PADDING-RIGHT: 15px;
+    PADDING-LEFT: 15px;
+    PADDING-TOP: 0px;
+    PADDING-BOTTOM: 0px;
+    font-family: Georgia, Verdana,Helvetica, sans-serif;
+    text-align: right;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 200%;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    color: #A60000;  /*  oragne - #ff6633  dark blue - #002D92   maroon - #A60000*/
+    text-decoration: none;
+}
+
+
+
+/* Classes for ASK.aspx _ Start */
+.askque{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color:#990000; /* #002D92; - blue  */
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+.askname{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: black; /* #002D92; - blue  */
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+.askans{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    vertical-align:top;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: black; /* #002D92; - blue; #990000; - brown  */
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+.askansindent{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    text-indent: 25px;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: black; /* #002D92; - blue; #990000; - brown  */
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+/* Classes for ASK.aspx _ End */
+
+
+
+.careeroptions{
+    text-align: left;
+    line-height: 190%;
+    color: #4D4D4D;
+    font-family: Georgia, Arial, Verdana, Tahoma, Sans-Serif;
+    font-size: 12px;
+    font-weight: bold;
+    PADDING: 5px;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.careeroptions a {
+	text-decoration: none;
+	color: #4D4D4D;
+	}
+	
+.careeroptions a:link, .careeroptions a:visited {
+	text-decoration: none;
+	color: #4D4D4D;
+	}
+	
+.careeroptions a:hover {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Htext1
+{
+	font-family: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+	font-size:13px;
+	text-decoration:none;
+	line-height:170%;
+	text-align:left;
+	padding: 0px 0px 0px 5px;
+}
+
+.Htext1 a {
+	text-decoration: none;
+	color: black;
+	}
+	
+.Htext1 a:link, .Htext1 a:visited {
+	text-decoration: none;
+	color: black;
+	}
+	
+.Htext1 a:hover {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+	
+.Htext3
+{
+	font-family: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+	font-size:16px;
+	text-decoration:none;
+	line-height:150%;
+	text-align:left;
+	padding: 0px 0px 0px 5px;
+}
+
+.Htext3 a {
+	text-decoration: none;
+	color: black;
+	}
+	
+.Htext3 a:link, .Htext3 a:visited {
+	text-decoration: none;
+	color: black;
+	}
+	
+.Htext3 a:hover {
+	text-decoration: underline;
+	color: #7CA9DA;
+	}
+	
+
+.Htext2
+{
+	font-family: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+	font-size:13px;
+	text-decoration:none;
+	font-weight: normal;
+	line-height:150%;
+	text-align:left;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+.Htext2 a {
+	text-decoration: none;
+	font-weight: normal;
+	color: Black;
+	}
+	
+.Htext2 a:link, .Htext2 a:visited {
+	text-decoration: none;
+	font-weight: normal;
+	color: Black;
+	}
+	
+.Htext2 a:hover {
+	text-decoration: none;
+	font-weight: normal;
+	color: Maroon;
+	}
+	
+
+.Hhead1
+{
+FONT-SIZE: 14px;
+FONT-FAMILY: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+COLOR: #8D1C14;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: bold;
+text-align: left;
+MARGIN: 0px;
+}
+
+
+.Hhead1 a {
+	text-decoration: none;
+	color: #8D1C14;
+	}
+	
+.Hhead1 a:link, .Hhead1 a:visited {
+	text-decoration: none;
+	color: #8D1C14;
+	}
+	
+.Hhead1 a:hover {
+	text-decoration: underline;
+	color: #8D1C14;
+	}
+	
+	
+	
+
+.TopStories1
+{
+FONT-SIZE: 16px;
+FONT-FAMILY: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+COLOR: Black;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: Bold;
+text-align: center;
+text-transform: uppercase;
+MARGIN: 0px;
+}
+
+
+.Groupshead1
+{
+font-size: 12pt;
+text-align: left;
+line-height: 150%;
+color: #990033;
+font-family: Verdana;
+padding: 0px;
+}
+
+
+.Groupshead1 a {
+	text-decoration: none;
+	color: #990033;
+	}
+	
+.Groupshead1 a:link, .Groupshead1 a:visited {
+	text-decoration: none;
+	color: #990033;
+	}
+	
+.Groupshead1 a:hover {
+	text-decoration: none;
+	color: #990033;
+	}
+	
+	
+.MockEngTxt
+{
+	font-family: Georgia, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	line-height:200%;
+	text-align:right;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+
+
+.IFHeads
+{
+FONT-SIZE: 18px;
+FONT-FAMILY: Georgia, Bookman Old Style, Arial, 'Comic Sans MS', Verdana, Helvetica, sans-serif;
+COLOR: Red;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: bold;
+text-align: center;
+MARGIN: 0px;
+}
+
+
+
+
+.g41{
+    text-align: left;
+    line-height: 150%;
+    color: #4D4D4D;
+    font-family: Georgia, Arial, Verdana, Tahoma, Sans-Serif;
+    font-size: 15px;
+    font-weight: bold;
+    PADDING: 0px;
+	margin: 5px 0px;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.g41 a {
+	text-decoration: none;
+	color: #4D4D4D;
+	margin: 5px 0px;
+	}
+	
+.g41 a:link, .g41 a:visited {
+	text-decoration: none;
+	margin: 5px 0px;
+	}
+	
+.g41 a:hover {
+	text-decoration: none;
+	color: red;
+	font-weight: bold;
+	margin: 5px 0px;
+	}
+	
+	
+	
+
+
+/* Classes for ATE.aspx _ Start */
+.ATEh{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color:#990000; /* #002D92; - blue  */
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+.ATEn{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: Gray; /* #002D92; - blue  */
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+.ATEans{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    vertical-align:top;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: black; /* #002D92; - blue; #990000; - brown  */
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+
+.ATEans a {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.ATEans a:link, .ATEans a:visited {
+	text-decoration: none;
+	color: maroon;
+	}
+	
+.ATEans a:hover {
+	text-decoration: none;
+	color: red;
+	}
+	
+
+.ATEansindent{
+    PADDING: 0px;
+    vertical-align: top;
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    text-align: justify;
+    text-indent: 25px;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 200%;
+    color: black; /* #002D92; - blue; #990000; - brown  */
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.Videolist
+{
+FONT-SIZE: 13px;
+FONT-FAMILY: Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+COLOR: Black;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: normal;
+text-align: left;
+MARGIN: 0px;
+}
+
+
+.Videolist a {
+	text-decoration: none;
+	color: #8D1C14;
+	}
+	
+.Videolist a:link, .Hhead1 a:visited {
+	text-decoration: none;
+	color: #8D1C14;
+	}
+	
+.Videolist a:hover {
+	text-decoration: underline;
+	color: #8D1C14;
+	}
+	
+.bhavitha_main{width:620px; 
+height:130px;
+}
+.bhavitha_up{width:200px;
+height:20px;
+background-color:#CCCCCC;
+border:#FF0000;
+font-family:Arial, Helvetica, sans-serif;
+font-size:18px;
+font-weight:bold;
+margin-left:10px;
+text-align:center;
+}
+.fon{font-size:14px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+color:#FF0000;
+}
+
+.bhavfont{font-size:14px;
+font-family: Georgia, Verdana, Helvetica, sans-serif;
+color:#333333;
+text-decoration:none;
+}
+
+.bhavfont:hover{font-size:14px;
+font-family: Georgia, Verdana, Helvetica, sans-serif;
+color:#993333;
+}
+
+
+.leftimg{height:80px;
+ margin:24px;
+width:100px;
+list-style:none;
+float:left;
+list-style:none;
+margin-bottom:10px;
+display:block;
+}
+
+
+/* Classes for ATE.aspx _ End */
+
+.Read1 {
+	font:12px/20px Arial,Helvetica,sans-serif;
+	font-weight:bold;
+    color: #BB000D;
+}
+
+
+.Read1 a {
+	text-decoration: none;
+	color: #BB000D;
+	}
+	
+.Read1 a:link, .Read1 a:visited {
+	text-decoration: none;
+	color: #BB000D;
+	}
+	
+.Read1 a:hover {
+	text-decoration: normal;
+	color: gray;
+	}
+
+	
+	
+/* for BhaVidhStory.aspx Start */
+
+.bhavidh16head
+{
+FONT-SIZE: 12px;
+text-transform: none;
+FONT-FAMILY: Calibri, Arial, Verdana, Helvetica, sans-serif;
+COLOR: black;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-TOP: 4px;
+PADDING-RIGHT: 10px;
+PADDING-BOTTOM: 4px;
+PADDING-LEFT: 10px;
+font-weight: bold;
+text-align: center;
+MARGIN: 0px;
+}
+
+.bhavidh16
+{
+FONT-SIZE: 12px;
+text-transform: none;
+FONT-FAMILY: Calibri, Arial, Verdana, Helvetica, sans-serif;
+COLOR: black;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-TOP: 4px;
+PADDING-RIGHT: 10px;
+PADDING-BOTTOM: 4px;
+PADDING-LEFT: 10px;
+font-weight: normal;
+text-align: center;
+MARGIN: 0px;
+}
+
+
+.CareersStoryHeadline
+{
+FONT-SIZE: 14px;
+text-transform: none;
+FONT-FAMILY: Calibri, Arial, Verdana, Helvetica, sans-serif;
+COLOR: Red;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-TOP: 4px;
+PADDING-RIGHT: 10px;
+PADDING-BOTTOM: 4px;
+PADDING-LEFT: 10px;
+font-weight: bold;
+text-align: left;
+MARGIN: 0px;
+}
+
+.careersimgstyle
+{
+    BORDER-RIGHT: #cbcaca 1px solid;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: #cbcaca 1px solid;
+    PADDING-LEFT: 4px;
+    FLOAT: right;
+    PADDING-BOTTOM: 4px;
+    MARGIN: 0px 0px 10px 0px;
+    BORDER-LEFT: #cbcaca 1px solid;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: #cbcaca 1px solid;
+    BACKGROUND-COLOR: #fff
+}
+
+
+.BhaVidhMonth{
+    PADDING: 4px;
+    font-family: Calibri, Arial, Verdana, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+	color:#000000;
+    text-decoration: none;
+}
+
+.BhaVidhMonth a {
+	text-decoration: none;
+	color:#000000;
+	}
+	
+.BhaVidhMonth a:link, .BhaVidhMonth a:visited {
+	text-decoration: none;
+	color:#000000;
+	}
+	
+.BhaVidhMonth a:hover {
+	text-decoration: none;
+	color:#000000;
+	}
+	
+	
+.BhaVidhTopic{
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 8px;
+    font-family: Calibri, Arial, Verdana, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 12px;
+    vertical-align: top;
+    line-height:180%;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+	color:Maroon;
+    text-decoration: none;
+}
+
+.BhaVidhTopic a {
+	text-decoration: none;
+	text-align: left;
+	color:Maroon;
+	}
+	
+.BhaVidhTopic a:link, .BhaVidhTopic a:visited {
+	text-decoration: none;
+	text-align: left;
+	color:Maroon;
+	}
+	
+.BhaVidhTopic a:hover {
+	text-decoration: none;
+	text-align: left;
+	color:Maroon;
+	}
+
+
+.BhaVidhPublish{
+    PADDING: 0px;
+    font-family: Calibri, Arial, Verdana, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    vertical-align: top;
+    line-height:180%;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+	color:#666666;
+    text-decoration: none;
+}
+
+.BhaVidhPublish a {
+	text-decoration: none;
+	color:#666666;
+	}
+	
+.BhaVidhPublish a:link, .BhaVidhPublish a:visited {
+	text-decoration: none;
+	color:#666666;
+	}
+	
+.BhaVidhPublish a:hover {
+	text-decoration: none;
+	color:#666666;
+	}
+	
+
+/* for BhaVidhStory.aspx End */	
+	
+/* home slider strat 	*/
+	
+
+
+.TopStoriesSlide
+{
+FONT-SIZE: 20px;
+FONT-FAMILY: Haettenschweiler,  Candara, Georgia, 'Comic Sans MS', Arial, Verdana, Helvetica, sans-serif;
+COLOR: #444242;
+line-height:180%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: normal;
+text-align: left;
+text-transform: uppercase;
+MARGIN: 0px;
+}
+
+.slider_mer_minus {
+	float: left;
+	width: 100%;
+	min-height: 460px;
+}
+
+
+.TopH1, .TopH2
+{
+FONT-SIZE: 18px;
+FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif;
+COLOR: #3296BA;
+line-height:150%;
+BORDER-BOTTOM: silver 0px solid;
+PADDING-RIGHT: 0px;
+PADDING-LEFT: 0px;
+PADDING-BOTTOM: 0px;
+PADDING-TOP: 0px;
+font-weight: bold;
+text-align: left;
+MARGIN: 0px;
+}
+
+
+.TopH1 a {
+	text-decoration: none;
+	color: #3296BA;
+	}
+	
+.TopH1 a:link, .Hhead1 a:visited {
+	text-decoration: none;
+	color: #3296BA;
+	}
+	
+.TopH1 a:hover {
+	text-decoration: underline;
+	color: #3296BA;
+	}
+	
+	
+.TopH2
+{
+FONT-SIZE: 13px;
+FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif;
+COLOR: black;
+font-weight: normal;
+}
+
+

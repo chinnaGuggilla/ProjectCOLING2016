@@ -1,0 +1,927 @@
+/* General styles */
+.undpbridge, .undpbridge p {
+  font-size: .9rem;
+  line-height: 1.4;
+}
+.undpbridge h1 {
+	font-size: 200%;
+}
+.undpbridge h2 {
+	font-size: 180%;
+}
+.undpbridge h3 {
+	font-size: 160%;
+}
+.undpbridge h4 {
+	font-size: 125%;
+}
+.undpbridge h5 {
+	font-size: 110%;
+}
+.undpbridge h6 {
+	font-size: 100%;
+}
+
+/*Add color to pagination*/
+ul.pagination.undp-pagination li a:link, ul.pagination.undp-pagination li a:active, ul.pagination.undp-pagination li a:visited {
+  color: #0265B5;
+}
+
+/*Add background color to active page in pagination*/
+ul.pagination.undp-pagination li.active {
+  background-color: #eee;
+}
+
+/* Text & Image captions */
+.undpbridge .media-caption {
+	display: block;
+	font-style: italic;
+	margin-bottom: 1rem;
+	font-size: .625rem;
+}
+
+/* text & image alignment */
+.undpbridge .textimage .float-left, .undpbridge .textimage .float-right {
+	max-width: 50%;
+	overflow: hidden;
+}
+.undpbridge .textimage .float-left, [dir-rtl] .undpbridge .textimage .float-right {
+	margin-right: 10px;
+}
+.undpbridge .textimage .float-right, [dir-rtl] .undpbridge .textimage .float-left {
+	margin-left: 10px;
+}
+
+/* blog post image alignment */
+.undpbridge .blogEntry .float-left, .undpbridge .blogEntry .float-right, .undpbridge .blogTopic .float-left, .undpbridge .blogTopic .float-right {
+	max-width: 50%;
+	overflow: hidden;
+}
+.undpbridge .blogEntry .float-left, [dir-rtl] .undpbridge .blogEntry .float-right, .undpbridge .blogTopic .float-left, [dir-rtl] .undpbridge .blogTopic .float-right {
+	margin-right: 10px;
+}
+.undpbridge .blogEntry .float-right, [dir-rtl] .undpbridge .blogEntry .float-left, .undpbridge .blogTopic .float-right, [dir-rtl] .undpbridge .blogTopic .float-left {
+	margin-left: 10px;
+}
+
+/* slideshow buttons */
+.undpbridge .slideshow .slick-prev:before,.undpbridge .slideshow .slick-next:before {
+  color: #8a8a8a;
+  font-size: 2rem;
+}
+
+/* Stack image if wide */
+.undpbridge .media-object.stacked {
+	display: block;
+    margin-bottom: 1rem;
+}
+.undpbridge .media-object.stacked .media-object-section {
+	padding: 0;
+    padding-bottom: 1rem;
+    display: block;
+}
+.undpbridge .media-object.stacked .media-object-section img {
+	width: 100%;
+}
+
+/* add some spacing to download widget */
+.undpbridge .docDownloads .fa {
+	margin-right: 10px;
+}
+[dir="rtl"].undpbridge .docDownloads .fa {
+	margin-left: 10px;
+}
+
+/* Flickr component spacing */
+.undpbridge .flickr img {
+    margin: 5px;
+}
+
+/* Our perspective text detail (old blog template) */
+.undpbridge .ourPerspectiveTextDetail .float-right {
+	width: 50%;
+	overflow: hidden;
+	margin-left: 10px;
+}
+[dir-rtl] .undpbridge .ourPerspectiveTextDetail .float-right {
+	margin-right: 10px;
+}
+
+/*Add colors to links*/
+.undpbridge.caption h3 a {
+  color: #0265B5;
+}
+
+.undpbridge.caption a {
+  color: #0265B5;
+}
+
+/*Add color to menu*/
+.presscenterLeftNav ul.menu.vertical li a:link, .presscenterLeftNav ul.menu.vertical li a:active, .presscenterLeftNav ul.menu.vertical li a:visited {
+  color: #0265B5;
+}
+
+.presscenterLeftNav ul.menu.vertical li a:hover {
+  background-color: #0265B5 !important;
+  color: #fefefe !important;
+}
+
+.presscenterLeftNav ul.menu.vertical li.active a {
+  background-color: #0265B5;
+  color: #fefefe;
+}
+
+.presscenterLeftNav ul.menu.vertical li.is-submenu-item a {
+  background-color: #fefefe;
+  color: #0265B5;
+}
+
+.leftNav ul.menu.vertical li a:link, .leftNav ul.menu.vertical li a:active, .leftNav ul.menu.vertical li a:visited {
+  color: #0265B5;
+}
+
+.leftNav ul.menu.vertical li a:hover {
+  background-color: #0265B5 !important;
+  color: #fefefe !important;
+}
+
+.leftNav ul.menu.vertical li.active > a {
+  background-color: #0265B5;
+  color: #fefefe;
+}
+
+.leftNav ul.menu.vertical li.is-submenu-item a, .leftNav ul.menu.vertical.nested a, .leftNav ul.menu.vertical.nested li.active > a {
+  background-color: #fefefe;
+  color: #0265B5;
+}
+
+/*Add bottom margin to accordion content/rightrailcontainer*/
+.undpbridge.accordion {
+  margin-bottom: 1rem;
+}
+
+/*Add color to links in accordion content/rightrailcontainer*/
+.undpbridge.accordion a:link, .undpbridge.accordion a:active, .undpbridge.accordion a:visited {
+  color: #0265B5;
+}
+
+/*Add color to back link, see blogEntry.jsp*/
+.undpbridge.back-link a:link, .undpbridge.back-link a:active, .undpbridge.back-link a:visited {
+  color: #0265B5;
+}
+
+/*Add color to links in blogEntry paragraphs*/
+.undpbridge.clearfix a:link, .undpbridge.clearfix a:active, .undpbridge.clearfix a:visited {
+  color: #0265B5;
+}
+/* .undpbridge.accordion .accordion-content {
+	border:0;
+} */
+
+/*Change color of font awesome icons in contactUNDP*/
+.contactUNDP span.fa {
+  color: #0265B5;
+}
+
+/*Change color of font awesome icons in captions*/
+.caption span.fa {
+  color: #0265B5;
+}
+
+/*Style for news list in press center*/
+.undpbridge .list-heading {
+  font-weight: 700;
+  font-size: 110%;
+  line-height: normal;
+}
+
+.undpbridge .media-list {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.undpbridge .list .media-list li {
+  margin-bottom: 1rem;
+}
+
+.undpbridge .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.undpbridge .thumblist .media-object .media-container {
+	width: 48px;
+	height: 48px;
+}
+.undpbridge .teaser .media-object .media-container {
+	width: 100px;
+	height: 100px;
+}
+.undpbridge .list .media-object .media-container {
+	overflow: hidden;
+	position: relative;
+}
+.undpbridge .list .media-object .media-container img {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+
+/* socicons */
+.undpbridge .list-social-nav {
+margin:0 -5px
+}
+
+.undpbridge .list-social-nav > li a {
+display:block;
+}
+.undpbridge .list-social-nav > li a:hover {
+text-decoration: none;
+}
+
+.undpbridge .list-social-nav > li .icon-box {
+display:block;
+width: 40px;
+height: 40px;
+text-align: center;
+opacity: 1;
+background-color:#265F91;
+color:#FFF;
+fill:#FFF;
+}
+.undpbridge .list-social-nav > li .icon-box:before {
+	line-height: 40px;
+}
+
+.undpbridge .socialMediaRightNav li {
+  /* font-size: 120%; */
+  padding: 10px;
+  text-align: left;
+}
+.undpbridge .socialMediaRightNav .list-social-nav > li span {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+
+.undpbridge .list-social-nav > li .icon-box.facebook {
+background-color:#3e5b98
+}
+
+.undpbridge .list-social-nav > li .icon-box.twitter {
+background-color:#4da7de
+}
+
+.undpbridge .list-social-nav > li .icon-box.linkedin {
+background-color:#3371b7
+}
+
+.undpbridge .list-social-nav > li .icon-box.youtube {
+background-color:#e02a20
+}
+
+.undpbridge .list-social-nav > li .icon-box.instagram {
+background-color:#125688
+}
+.undpbridge .list-social-nav > li .icon-box.blogger {
+background-color:#ec661c
+}
+.undpbridge .list-social-nav > li .icon-box.flickr {
+background-color:#1e1e1b
+}
+.undpbridge .list-social-nav > li .icon-box.foursquare {
+background-color:#f94877
+}
+.undpbridge .list-social-nav > li .icon-box.googleplus {
+background-color:#dd4b39
+}
+.undpbridge .list-social-nav > li .icon-box.issuu {
+background-color:#F26F61
+}
+.undpbridge .list-social-nav > li .icon-box.livejournal {
+background-color:#0099CC
+}
+.undpbridge .list-social-nav > li .icon-box.pinterest {
+background-color:#c92619
+}
+.undpbridge .list-social-nav > li .icon-box.renren {
+background-color:#2266b0
+}
+.undpbridge .list-social-nav > li .icon-box.rss {
+background-color:#f26109
+}
+.undpbridge .list-social-nav > li .icon-box.slideshare {
+background-color:#4ba3a6
+}
+.undpbridge .list-social-nav > li .icon-box.tumblr {
+background-color:#45556c
+}
+.undpbridge .list-social-nav > li .icon-box.vine {
+background-color:#00b389
+}
+.undpbridge .list-social-nav > li .icon-box.vkontakte {
+background-color:#5a7fa6
+}
+.undpbridge .list-social-nav > li .icon-box.weibo {
+background-color:#e31c34
+}
+.undpbridge .list-social-nav > li .icon-box.odnoklassniki {
+background-color:#f48420
+}
+.undpbridge .list-social-nav > li .icon-box.wechat {
+background-color:#09b507
+}
+
+
+/*Style lists*/
+.undpbridge .list .news li {
+	margin-bottom: 1rem;
+}
+.undpbridge .list .news li span {
+  display: block;
+  margin-bottom: 5px;
+  color:#666;
+  padding-right:5px;
+  font-weight:700;
+}
+html[dir="rtl"] .undpbridge .list .news li span {
+	padding-left:5px;
+	padding-right:0;
+}
+.undpbridge .list .btn-subscribe {
+	float: right;
+}
+html[dir="rtl"] .undpbridge .list .btn-subscribe {
+	float: left;
+}
+.undpbridge .list .btn-subscribe img {
+	padding: 5px;
+}
+.undpbridge .media-heading {
+	font-size: 110%;
+    font-weight: 700;
+}
+.undpbridge .media-object-section.main-section span  {
+	font-size: 90%;
+}
+
+
+/*Remove foundation input border on GoogleCustomSearchEngine*/
+[type='text'],
+.gsc_input textarea {
+  box-shadow: none; }
+  [type='text']:focus,
+  .gsc_input textarea:focus {
+    box-shadow: none; }
+
+/*Large size only*/
+@media print, screen and (min-width: 64em) {
+
+  /*Remove collapse buttons when size is large*/
+  .undpbridge.accordion-title {
+    display: none !important;
+  }
+
+  /*Show content regardless of collapse state when large*/
+  .undpbridge.accordion-content {
+    display: block !important;
+  }
+}
+
+/* mainImage for practice pages */
+.undpbridge .mainImage .card {
+	background: #0265B5;
+	color: #fefefe;
+}
+.undpbridge .mainImage .card a {
+	color: #66c2ff;
+}
+.undpbridge .mainImage .card a:hover {
+	color: #4fb9ff;
+}
+@charset "UTF-8";
+
+/* socicon */
+@font-face {
+  font-family: "socicon";
+  src:url("../../undp/fonts/1474843172.eot");
+  src:url("../../undp/fonts/1474843172.eot?#iefix") format("embedded-opentype"),
+    url("../../undp/fonts/1474843172.woff") format("woff"),
+    url("../../undp/fonts/1474843172.ttf") format("truetype"),
+    url("../../undp/fonts/1474843172.svg#1474843172") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "socicon" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="socicon-"]:before,
+[class*=" socicon-"]:before {
+  font-family: "socicon" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.socicon-modelmayhem:before {
+  content: "\e000";
+}
+.socicon-mixcloud:before {
+  content: "\e001";
+}
+.socicon-drupal:before {
+  content: "\e002";
+}
+.socicon-swarm:before {
+  content: "\e003";
+}
+.socicon-istock:before {
+  content: "\e004";
+}
+.socicon-yammer:before {
+  content: "\e005";
+}
+.socicon-ello:before {
+  content: "\e006";
+}
+.socicon-stackoverflow:before {
+  content: "\e007";
+}
+.socicon-persona:before {
+  content: "\e008";
+}
+.socicon-triplej:before {
+  content: "\e009";
+}
+.socicon-houzz:before {
+  content: "\e00a";
+}
+.socicon-rss:before {
+  content: "\e00b";
+}
+.socicon-paypal:before {
+  content: "\e00c";
+}
+.socicon-odnoklassniki:before {
+  content: "\e00d";
+}
+.socicon-airbnb:before {
+  content: "\e00e";
+}
+.socicon-periscope:before {
+  content: "\e00f";
+}
+.socicon-outlook:before {
+  content: "\e010";
+}
+.socicon-coderwall:before {
+  content: "\e011";
+}
+.socicon-tripadvisor:before {
+  content: "\e012";
+}
+.socicon-appnet:before {
+  content: "\e013";
+}
+.socicon-goodreads:before {
+  content: "\e014";
+}
+.socicon-tripit:before {
+  content: "\e015";
+}
+.socicon-lanyrd:before {
+  content: "\e016";
+}
+.socicon-slideshare:before {
+  content: "\e017";
+}
+.socicon-buffer:before {
+  content: "\e018";
+}
+.socicon-disqus:before {
+  content: "\e019";
+}
+.socicon-vkontakte:before {
+  content: "\e01a";
+}
+.socicon-whatsapp:before {
+  content: "\e01b";
+}
+.socicon-patreon:before {
+  content: "\e01c";
+}
+.socicon-storehouse:before {
+  content: "\e01d";
+}
+.socicon-pocket:before {
+  content: "\e01e";
+}
+.socicon-mail:before {
+  content: "\e01f";
+}
+.socicon-blogger:before {
+  content: "\e020";
+}
+.socicon-technorati:before {
+  content: "\e021";
+}
+.socicon-reddit:before {
+  content: "\e022";
+}
+.socicon-dribbble:before {
+  content: "\e023";
+}
+.socicon-stumbleupon:before {
+  content: "\e024";
+}
+.socicon-digg:before {
+  content: "\e025";
+}
+.socicon-envato:before {
+  content: "\e026";
+}
+.socicon-behance:before {
+  content: "\e027";
+}
+.socicon-delicious:before {
+  content: "\e028";
+}
+.socicon-deviantart:before {
+  content: "\e029";
+}
+.socicon-forrst:before {
+  content: "\e02a";
+}
+.socicon-play:before {
+  content: "\e02b";
+}
+.socicon-zerply:before {
+  content: "\e02c";
+}
+.socicon-wikipedia:before {
+  content: "\e02d";
+}
+.socicon-apple:before {
+  content: "\e02e";
+}
+.socicon-flattr:before {
+  content: "\e02f";
+}
+.socicon-github:before {
+  content: "\e030";
+}
+.socicon-renren:before {
+  content: "\e031";
+}
+.socicon-friendfeed:before {
+  content: "\e032";
+}
+.socicon-newsvine:before {
+  content: "\e033";
+}
+.socicon-identica:before {
+  content: "\e034";
+}
+.socicon-bebo:before {
+  content: "\e035";
+}
+.socicon-zynga:before {
+  content: "\e036";
+}
+.socicon-steam:before {
+  content: "\e037";
+}
+.socicon-xbox:before {
+  content: "\e038";
+}
+.socicon-windows:before {
+  content: "\e039";
+}
+.socicon-qq:before {
+  content: "\e03a";
+}
+.socicon-douban:before {
+  content: "\e03b";
+}
+.socicon-meetup:before {
+  content: "\e03c";
+}
+.socicon-playstation:before {
+  content: "\e03d";
+}
+.socicon-android:before {
+  content: "\e03e";
+}
+.socicon-snapchat:before {
+  content: "\e03f";
+}
+.socicon-twitter:before {
+  content: "\e040";
+}
+.socicon-facebook:before {
+  content: "\e041";
+}
+.socicon-googleplus:before {
+  content: "\e042";
+}
+.socicon-pinterest:before {
+  content: "\e043";
+}
+.socicon-foursquare:before {
+  content: "\e044";
+}
+.socicon-yahoo:before {
+  content: "\e045";
+}
+.socicon-skype:before {
+  content: "\e046";
+}
+.socicon-yelp:before {
+  content: "\e047";
+}
+.socicon-feedburner:before {
+  content: "\e048";
+}
+.socicon-linkedin:before {
+  content: "\e049";
+}
+.socicon-viadeo:before {
+  content: "\e04a";
+}
+.socicon-xing:before {
+  content: "\e04b";
+}
+.socicon-myspace:before {
+  content: "\e04c";
+}
+.socicon-soundcloud:before {
+  content: "\e04d";
+}
+.socicon-spotify:before {
+  content: "\e04e";
+}
+.socicon-grooveshark:before {
+  content: "\e04f";
+}
+.socicon-lastfm:before {
+  content: "\e050";
+}
+.socicon-youtube:before {
+  content: "\e051";
+}
+.socicon-vimeo:before {
+  content: "\e052";
+}
+.socicon-dailymotion:before {
+  content: "\e053";
+}
+.socicon-vine:before {
+  content: "\e054";
+}
+.socicon-flickr:before {
+  content: "\e055";
+}
+.socicon-500px:before {
+  content: "\e056";
+}
+.socicon-wordpress:before {
+  content: "\e058";
+}
+.socicon-tumblr:before {
+  content: "\e059";
+}
+.socicon-twitch:before {
+  content: "\e05a";
+}
+.socicon-8tracks:before {
+  content: "\e05b";
+}
+.socicon-amazon:before {
+  content: "\e05c";
+}
+.socicon-icq:before {
+  content: "\e05d";
+}
+.socicon-smugmug:before {
+  content: "\e05e";
+}
+.socicon-ravelry:before {
+  content: "\e05f";
+}
+.socicon-weibo:before {
+  content: "\e060";
+}
+.socicon-baidu:before {
+  content: "\e061";
+}
+.socicon-angellist:before {
+  content: "\e062";
+}
+.socicon-ebay:before {
+  content: "\e063";
+}
+.socicon-imdb:before {
+  content: "\e064";
+}
+.socicon-stayfriends:before {
+  content: "\e065";
+}
+.socicon-residentadvisor:before {
+  content: "\e066";
+}
+.socicon-google:before {
+  content: "\e067";
+}
+.socicon-yandex:before {
+  content: "\e068";
+}
+.socicon-sharethis:before {
+  content: "\e069";
+}
+.socicon-bandcamp:before {
+  content: "\e06a";
+}
+.socicon-itunes:before {
+  content: "\e06b";
+}
+.socicon-deezer:before {
+  content: "\e06c";
+}
+.socicon-telegram:before {
+  content: "\e06e";
+}
+.socicon-openid:before {
+  content: "\e06f";
+}
+.socicon-amplement:before {
+  content: "\e070";
+}
+.socicon-viber:before {
+  content: "\e071";
+}
+.socicon-zomato:before {
+  content: "\e072";
+}
+.socicon-quora:before {
+  content: "\e073";
+}
+.socicon-draugiem:before {
+  content: "\e074";
+}
+.socicon-endomodo:before {
+  content: "\e075";
+}
+.socicon-filmweb:before {
+  content: "\e076";
+}
+.socicon-stackexchange:before {
+  content: "\e077";
+}
+.socicon-wykop:before {
+  content: "\e078";
+}
+.socicon-teamspeak:before {
+  content: "\e079";
+}
+.socicon-teamviewer:before {
+  content: "\e07a";
+}
+.socicon-ventrilo:before {
+  content: "\e07b";
+}
+.socicon-younow:before {
+  content: "\e07c";
+}
+.socicon-raidcall:before {
+  content: "\e07d";
+}
+.socicon-mumble:before {
+  content: "\e07e";
+}
+.socicon-medium:before {
+  content: "\e06d";
+}
+.socicon-bebee:before {
+  content: "\e07f";
+}
+.socicon-hitbox:before {
+  content: "\e080";
+}
+.socicon-reverbnation:before {
+  content: "\e081";
+}
+.socicon-formulr:before {
+  content: "\e082";
+}
+.socicon-instagram:before {
+  content: "\e057";
+}
+.socicon-battlenet:before {
+  content: "\e083";
+}
+.socicon-chrome:before {
+  content: "\e084";
+}
+.socicon-diablo:before {
+  content: "\e085";
+}
+.socicon-discord:before {
+  content: "\e086";
+}
+.socicon-issuu:before {
+  content: "\e087";
+}
+.socicon-macos:before {
+  content: "\e088";
+}
+.socicon-firefox:before {
+  content: "\e089";
+}
+.socicon-heroes:before {
+  content: "\e08a";
+}
+.socicon-hearthstone:before {
+  content: "\e08b";
+}
+.socicon-overwatch:before {
+  content: "\e08c";
+}
+.socicon-warcraft:before {
+  content: "\e08e";
+}
+.socicon-opera:before {
+  content: "\e08d";
+}
+.socicon-starcraft:before {
+  content: "\e08f";
+}
+.socicon-keybase:before {
+  content: "\e090";
+}
+.socicon-alliance:before {
+  content: "\e091";
+}
+.socicon-livejournal:before {
+  content: "\e092";
+}
+.socicon-googlephotos:before {
+  content: "\e093";
+}
+.socicon-horde:before {
+  content: "\e094";
+}
+.socicon-etsy:before {
+  content: "\e095";
+}
+.socicon-zapier:before {
+  content: "\e096";
+}
+.socicon-google-scholar:before {
+  content: "\e097";
+}
+.socicon-researchgate:before {
+  content: "\e098";
+}
+.socicon-wechat:before {
+  content: "\e099";
+}
+.socicon-strava:before {
+  content: "\e09a";
+}
+.socicon-line:before {
+  content: "\e09b";
+}
+.socicon-lyft:before {
+  content: "\e09c";
+}
+.socicon-uber:before {
+  content: "\e09d";
+}
+.socicon-songkick:before {
+  content: "\e09e";
+}
+.socicon-unknown:before {
+  content:"\00a0";
+}

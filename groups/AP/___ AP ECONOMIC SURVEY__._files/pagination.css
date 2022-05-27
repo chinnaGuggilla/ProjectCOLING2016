@@ -1,0 +1,138 @@
+@font-face { 
+  font-family:Century Gothic; 
+    src: local("Century Gothic"), url('fonts/gothic.ttf'); 
+}
+@font-face { 
+  font-family:NATS; 
+    src: local("NATS"), url('fonts/NATS.ttf'); 
+}
+@font-face { 
+  font-family:Sree Krushnadevaraya; 
+    src: local("Sree Krushnadevaraya"), url('fonts/Sree Krushnadevaraya.ttf'); 
+}
+@font-face { 
+  font-family:Droid Sans; 
+    src: local("Droid Sans"), url('fonts/DroidSans.ttf'); 
+}
+@font-face { 
+  font-family:Montserrat; 
+    src: local("Montserrat"), url('fonts/Montserrat-Regular.ttf'); 
+}
+@font-face { 
+  font-family:Suravaram; 
+    src: local("Suravaram"), url('fonts/Suravaram.ttf'); 
+}
+@font-face { 
+  font-family:Mallanna; 
+    src: local("Mallanna"), url('fonts/mallanna.ttf');
+}
+@font-face { 
+  font-family:Ramaraja; 
+    src: local("Ramaraja"), url('fonts/Ramaraja-Regular.ttf');
+}
+.simple-pagination-page-numbers a
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color:#000000;
+	font-family: "Droid Sans", NATS;
+	font-size:18px;
+	margin-top:3px;
+}
+a:hover{
+	color:#FF0000;
+}
+.my-navigation div a{
+	float: left;
+	height:14px;
+	width:14px;
+	background:#6a888f;
+	background: -webkit-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -moz-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -o-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -ms-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: linear-gradient(top, #6a888f 0%,#38545b 100%);
+	padding:5px;
+	font-family:Droid Sans;
+	font-size:12px;
+	border:thin;
+	border-color:#38545b;
+	border-style:ridge;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	color:#FFFFFF;
+	margin-left:5px;
+}
+.my-navigation div a:hover
+{
+	background:#000;
+	color:#CCCCCC;
+}
+
+
+
+.my-navigation1 div a
+{
+	float: left;
+	height:14px;
+	width:35px;
+	background:#6a888f;
+	background: -webkit-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -moz-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -o-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -ms-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: linear-gradient(top, #6a888f 0%,#38545b 100%);
+	padding:5px;
+	font-family:Droid Sans;
+	font-size:13px;
+	border:thin;
+	border-color:#38545b;
+	border-style:ridge;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	color:#FFFFFF;
+	margin-left:5px;
+	text-align:center;
+}
+.my-navigation1 div a:hover
+{
+	background:#000;
+	color:#CCCCCC;
+}
+
+
+.my-navigation2 div a
+{
+	float: left;
+	height:14px;
+	width:35px;
+	background:#6a888f;
+	background: -webkit-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -moz-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -o-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: -ms-linear-gradient(top, #6a888f 0%,#38545b 100%);
+	background: linear-gradient(top, #6a888f 0%,#38545b 100%);
+	padding:5px;
+	font-family:Droid Sans;
+	font-size:13px;
+	border:thin;
+	border-color:#38545b;
+	border-style:ridge;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	color:#FFFFFF;
+	margin-left:5px;
+	text-align:center;
+}
+.my-navigation2 div a:hover
+{
+	background:#000;
+	color:#CCCCCC;
+}
