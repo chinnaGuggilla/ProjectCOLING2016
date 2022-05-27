@@ -1,0 +1,47 @@
+
+var ftGUID_5571215="49070D2D4217AB";
+var ftConfID_5571215="25749634";
+var ftParams_5571215="ft_custom=AD1EzRQAAABmCl4KDAgAFQAAAAAdAAAAABIMCAAVAAAAAB0AAAAAIhEIq_D4F6gC2e_iArACqajDCUAB0gIqGAEiEwjkjL-9yPHyAhVPx4cKHWq0DD0oATABOM-El6nmDUACSAFYmYEgEOm9_6cBaRKplb0m5XNrsBmxRzctWA%2C50214955%2C352313065%2CABAjH0izvWct3Oe0CQL4PcuOXbkr&ftOBA=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fclient%3Dca-pub-0620165865439255%26output%3Dhtml%26h%3D600%26slotname%3D9065914537%26adk%3D1880635349%26adf%3D2038975226%26pi%3Dt.ma~as.9065914537%26w%3D250%26fwrn%3D4%26fwrnh%3D100%26lmt%3D1631179315%26rafmt%3D1%26tp%3Dsite_kit%26psa%3D0%26format%3D250x600%26url%3Dhttps%253A%252F%252Fvitalflux.com%252Fminmaxscaler-standardscaler-python-examples%252F%26flash%3D0%26fwr%3D0%26fwrattr%3Dtrue%26rpe%3D1%26resp_fmts%3D4%26wgl%3D1%26uach%3DWyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIjkyLjAuNDUxNS4xNTkiLFtdLG51bGwsbnVsbCxudWxsXQ..%26dt%3D1631179315443%26bpp%3D2%26bdt%3D1378%26idt%3D208%26shv%3Dr20210831%26mjsv%3Dm202109070201%26ptt%3D9%26saldr%3Daa%26abxe%3D1%26prev_fmts%3D0x0%252C250x600%26nras%3D1%26correlator%3D1562248908661%26frm%3D20%26pv%3D1%26ga_vid%3D935943353.1631179316%26ga_sid%3D1631179316%26ga_hid%3D1335490081%26ga_fc%3D0%26u_tz%3D330%26u_his%3D4%26u_java%3D0%26u_h%3D720%26u_w%3D1280%26u_ah%3D680%26u_aw%3D1280%26u_cd%3D24%26u_nplu&us_privacy=${US_PRIVACY}&cachebuster=358037.82339292445&ft_keyword=COM_IN&ft_section=%5BPUBLISHER%20AUCTION%20MACRO%5D";
+var ftKeyword_5571215="com_in";
+var ftCustom_5571215="AD1EzRQAAABmCl4KDAgAFQAAAAAdAAAAABIMCAAVAAAAAB0AAAAAIhEIq_D4F6gC2e_iArACqajDCUAB0gIqGAEiEwjkjL-9yPHyAhVPx4cKHWq0DD0oATABOM-El6nmDUACSAFYmYEgEOm9_6cBaRKplb0m5XNrsBmxRzctWA,50214955,352313065,ABAjH0izvWct3Oe0CQL4PcuOXbkr";
+var ftSection_5571215="[PUBLISHER AUCTION MACRO]";
+var ftSegment_5571215="w2b";
+var ftSegmentList_5571215=[{s:'w2b'}];
+var ftRuleMatch_5571215="00010000";
+var ftTimestamp_5571215="1631179511";
+var ftGeoC2_5571215="in";
+var ftGeoState_5571215="ka";
+var ftGeoCity_5571215="bangalore";
+var ftISP_5571215="hathway cable and datacom pvt ltd";
+var ftSpeed_5571215="cable";
+var ftDMA_5571215="356004";
+var ftLong_5571215="77.58";
+var ftLat_5571215="12.96";
+var ftPostal_5571215="560002";
+var ftTimeZone_5571215="530";
+var ftMobileCarrier_5571215="";
+var ftImp5571215 = {};
+ftImp5571215.privacy = "x";
+ftImp5571215.guidAge = "93";
+ftImp5571215.impID = "F0FC7F5E-A8A3-3BDF-1462-4EB1F680325D";
+ftImp5571215.duid = "FT:49070D2D4217AB";
+ftImp5571215.ft_tpplid = "";
+ftImp5571215.ft_c = {};
+ftImp5571215.gdpr = "";
+ftImp5571215.gdpr_consent = "";
+ftImp5571215.gdpr_pd = "";
+ftImp5571215.oob_consent = "0";
+ftImp5571215.gdprStoredConsent = "";
+ftImp5571215.us_privacy = "!!US_PRIVACY!";
+
+ftImp5571215.jsAppend = "1";
+(function(){
+    var tag = document.getElementById('ft_servedby_5571215') || (function(s){
+    	return s[s.length-1];
+    }(document.getElementsByTagName('script'))),
+           js = document.createElement('script');
+    js.src =
+"https://cdn.flashtalking.com/xre/557/5571215/2677325/js/j-5571215-2677325.js";
+    js.id = "ftscript_m5571215";
+    tag.parentNode.insertBefore(js, tag);
+}());

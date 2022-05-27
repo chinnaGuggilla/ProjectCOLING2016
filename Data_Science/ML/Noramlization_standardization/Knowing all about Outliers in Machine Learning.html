@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning -->
+<html lang="en-US" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Knowing all about Outliers in Machine Learning_files/get_counts"></script><script type="text/javascript" async="" src="./Knowing all about Outliers in Machine Learning_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Knowing all about Outliers in Machine Learning_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-Me/xBbBvuuItTu/oAnI7UkdtjfgtuZXbaYLJKHlUuMOlG+7MivghWo/kKOwhQ7pf"></script>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://datascience.foundation/img/ico/favicon.png?ver=0.1">
+
+        <title>Knowing all about Outliers in Machine Learning</title>
+            <meta property="og:type" content="article">
+        <meta property="og:image" content="https://datascience.foundation/img/logo_200.png">
+        <meta id="landing_page_title" name="title" content="Knowing all about Outliers in Machine Learning">
+    <meta id="landing_page_desc" name="description" content="While working on various dataset to train a Machine Learning model. What is it, that you look for? What is the most important part of the EDA phase?">
+    <meta id="landing_page_keywords" name="keywords" content="outliers, find the outliers, eda, machine learning, ml">
+    <link href="./Knowing all about Outliers in Machine Learning_files/css" rel="stylesheet" type="text/css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="csrf-param" content="_frontendCSRF">
+<meta name="csrf-token" content="N5FS_CJ7UNAsNzOKA7OT01TWIbDKYOAYx93aAGZahnAa8wjIEisd4llvdu5A6qaaAJ5k844jkUqvu7tKFTSrJg==">
+    
+    <meta id="og_title" property="og:title" content="Knowing all about Outliers in Machine Learning">
+<meta id="og_type" property="og:type" content="image">
+<meta id="og_url" property="og:url" content="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning">
+<meta id="og_image" property="og:image" content="https://datascience.foundation/img/logo_200.png">
+<meta id="og_description" property="og:description" content="While working on various dataset to train a Machine Learning model. What is it, that you look for? What is the most important part of the EDA phase? There are certain things which, if they are not done in the EDA phase, can affect further statistical / Machine Learning modelling. One of the answers is to, find “Outliers”.">
+<link href="./Knowing all about Outliers in Machine Learning_files/bootstrap.css" rel="stylesheet">
+<link href="./Knowing all about Outliers in Machine Learning_files/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+<link href="./Knowing all about Outliers in Machine Learning_files/app-asset-minified-css.min.css" rel="stylesheet">
+<link href="./Knowing all about Outliers in Machine Learning_files/blue.min.css" rel="stylesheet">
+<link href="./Knowing all about Outliers in Machine Learning_files/jquery.fancybox.min.css" rel="stylesheet">
+<link href="./Knowing all about Outliers in Machine Learning_files/custom.min.css" rel="stylesheet">            <!-- <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://datascience.foundation/js/analytics.js','ga');
+
+            ga('create', 'UA-74400750-1', 'auto');
+            ga('send', 'pageview');
+
+            // https://www.google-analytics.com/analytics.js
+        </script> -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async="" src="./Knowing all about Outliers in Machine Learning_files/js"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-74400750-1');
+        </script>
+        <script>
+        var trackOutboundLink = function(url) {
+           ga('send', 'event', 'outbound', 'click', url, {
+             'transport': 'beacon',
+             'hitCallback': function(){document.location = url;}
+           });
+        }
+        </script>
+    <script src="./Knowing all about Outliers in Machine Learning_files/jquery.mousewheel.min.js.download"></script><style>.latest-datatalk:before{background:  url(https://datascience.foundation/img/section-bg.jpg)}</style></head>
+
+<body class="body_common_class body-whitepaper-view" style="overflow-y: auto; position: initial;">
+    <script>
+        IS_MOBILE = '0';
+        SITE_URL = 'https://datascience.foundation/';
+        isGuest = '1';
+        CURRENT_SLUG = 'sciencewhitepaper';
+    </script>
+    <input type="hidden" id="SITE_URL_LINK" value="https://datascience.foundation/">
+    <input type="hidden" id="is_guest" value="true">
+
+            
+        	<script src="./Knowing all about Outliers in Machine Learning_files/jquery-latest-1.11.min.js.download" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=598b1f201af054001146972f&product=inline-share-buttons"></script> -->
+
+	<script type="text/javascript" src="./Knowing all about Outliers in Machine Learning_files/sharethis.js.download"></script>
+
+	<div class="wrap with-logo fixed-header-mobile">
+					<section class="login-section " id="section2" style="top: -91px;">
+				<div>
+					<div class="container p">
+						<!-- <div class="row desktop-header">
+							<div class="col-lg-6">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="content-box big ch-item wow fadeInLeft animated p">
+										<div class="cont-space"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="content-box big ch-item wow fadeInLeft animated p">
+										<div class="cont-space login-links">
+											<a href="https://datascience.foundation/login">Login</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://datascience.foundation/joinus">Join Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://datascience.foundation/subscribe-for-newsletter">Subscribe to Newsletter</a>
+										</div>
+										<div class="cont-space login-sub-text">
+											Login to View News Feed and Manage Profile
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+
+						<div class="row desktop-header">
+							<div class="col-lg-6">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="content-box big ch-item wow fadeInLeft animated p animated" style="visibility: visible;">
+										<div class="cont-space"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">								
+								<div class="content-box ch-item wow fadeInLeft animated p top-header-box animated" style="visibility: visible;">
+									<div class="cont-space login-links">
+										<a href="https://datascience.foundation/login">Login</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://datascience.foundation/joinus">Join Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://datascience.foundation/subscribe-for-newsletter">Subscribe to Newsletter</a>
+									</div>
+									<div class="cont-space login-sub-text">
+										Login to View News Feed and Manage Profile
+									</div>
+								</div>								
+							</div>
+						</div>
+
+						<!------------ Mobile Menu ------------->
+						<div class="row mobile-header">
+							<div class="col-md-12 pl10">
+								<div class="mobile-menu-icon">
+									<span onclick="openMobileMenu()">☰</span>
+								</div>
+								<div class="top-header-link ">
+									<div class="left-link"><a href="https://datascience.foundation/login">Login</a></div><div class="center-logo-link "><a href="https://datascience.foundation/"><img src="./Knowing all about Outliers in Machine Learning_files/logo_icon_small.png" width="40px"></a></div><div class="right-link"><a href="https://datascience.foundation/joinus">Join Us</a></div>
+								</div>
+
+								<div class="login-sub-text-mobile">Login to View News Feed and Manage Profile</div>
+
+							</div>
+						</div>
+						<!------------ End Mobile Menu ------------->
+
+					</div>
+				</div>
+			</section>
+
+		
+		<!-- Image Background Parallax -->
+		<div id="section" class="image-parallax" style="background-image: url(&quot;https://datascience.foundation/img/slider/bx1.png&quot;); background-position: 50% -21px;">
+			<div class="bg-overlay logo-background-section">
+				<div class="slide-content light">
+					<div class="align-center">
+					<!-- Top Logo -->
+					<div class="top-logo">
+						<div class="scrollNormal"> <a href="https://datascience.foundation/"> <img alt="Agency" src="./Knowing all about Outliers in Machine Learning_files/logo_welcome.png"></a> </div>
+						<div class="scrollDown"> <a href="https://datascience.foundation/"> <img alt="Agency" src="./Knowing all about Outliers in Machine Learning_files/logo2_welcome.png"></a> </div>
+					</div>
+
+					<div id="navigation">
+						<nav class="navbar navbar-custom cl-effect-21" role="navigation">
+							<div class="container p">
+								<div class="row">
+									<div class="col-md-12 mob-menu">
+										<div class="row">
+											<div id="cssmenu"><div id="menu-line" style="width: 127px; left: 192.958px;"></div><div id="menu-line" style="width: 127px; left: 192.958px;"></div><div id="menu-button">Menu</div>
+												<ul>
+													<!-- <li class='navbar-custom-li '><a href='https://datascience.foundation/'>Home</a></li> -->
+													<li class="has-sub "><span class="submenu-button"></span><a href="https://datascience.foundation/">Home</a></li><li class="has-sub active"><span class="submenu-button"></span><a href="https://datascience.foundation/information">Information</a><ul><li> <a href="https://datascience.foundation/discussion">Discussion</a> </li><li> <a href="https://datascience.foundation/datatalk">Articles</a> </li><li> <a href="https://datascience.foundation/sciencewhitepaper">Whitepapers</a> </li><li> <a href="https://datascience.foundation/usecase">Use Cases</a> </li><li> <a href="https://datascience.foundation/datascience">News</a> </li><li> <a href="https://datascience.foundation/contributors">Contributors</a> </li><li> <a href="https://datascience.foundation/subscribe-for-newsletter"> Subscribe to Newsletter</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/universitycourses">Courses</a><ul><li> <a href="https://datascience.foundation/datasciencecourses">Data Science &amp; Analytics</a> </li><li> <a href="https://datascience.foundation/statisticscourses">Statistics and Related Courses</a> </li><li> <a href="https://datascience.foundation/onlinelearning">Online Data Science Courses</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/prodigy">Prodigy</a><ul><li> <a href="https://datascience.foundation/prodigy/login">Prodigy Login</a> </li><li> <a href="https://datascience.foundation/prodigy/find-out-more">Prodigy Find Out More</a> </li><li> <a href="https://datascience.foundation/prodigy/academy">Prodigy Free Services</a> </li><li> <a href="https://datascience.foundation/prodigy/feedback">Prodigy Feedback</a> </li><li> <a href="https://datascience.foundation/prodigy/terms-&amp;-conditions">Prodigy T&amp;Cs</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/awards">Awards</a><ul><li> <a href="https://datascience.foundation/competition">Contributors Competition</a> </li><li> <a href="https://datascience.foundation/writeroftheyear">Data Science Writer Of The Year</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/membership">Membership</a><ul><li> <a href="https://datascience.foundation/individual">Individual</a> </li><li> <a href="https://datascience.foundation/organisational">Organisational</a> </li><li> <a href="https://datascience.foundation/scienceuniversity">University</a> </li><li> <a href="https://datascience.foundation/associate">Associate</a> </li><li> <a href="https://datascience.foundation/affiliate">Affiliate</a> </li><li> <a href="https://datascience.foundation/benefit">Benefits</a> </li><li> <a href="https://datascience.foundation/memberfees">Membership Fees</a> </li><li> <a href="https://datascience.foundation/joinus">Join Us</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/consultancy">Consultancy</a><ul><li> <a href="https://datascience.foundation/professionalservices">Professional Services</a> </li><li> <a href="https://datascience.foundation/methodology">Project Methodology</a> </li><li> <a href="https://datascience.foundation/unlock-your-data">Unlock Your Data</a> </li><li> <a href="https://datascience.foundation/advanced-analytics">Advanced Analytics</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/resource">Resources</a><ul><li> <a href="https://datascience.foundation/big-data-resource">Big Data Resources</a> </li><li> <a href="https://datascience.foundation/technology">Technology Resources</a> </li><li> <a href="https://datascience.foundation/speaker">Speakers</a> </li><li> <a href="https://datascience.foundation/jobs">Data Science Jobs Board</a> </li><li> <a href="https://datascience.foundation/cv">Member CVs</a> </li></ul></li><li class="has-sub"><span class="submenu-button"></span><a href="https://datascience.foundation/about">About</a><ul><li> <a href="https://datascience.foundation/contact">Contact</a> </li><li> <a href="https://datascience.foundation/dsf">Data Science Foundation</a> </li><li> <a href="https://datascience.foundation/steering">Steering Group</a> </li><li> <a href="https://datascience.foundation/professional">Professional Standards</a> </li><li> <a href="https://datascience.foundation/government">Government And Industry</a> </li><li> <a href="https://datascience.foundation/sponsor">Sponsors</a> </li><li> <a href="https://datascience.foundation/supporter">Supporter</a> </li><li> <a href="https://datascience.foundation/applicationform">Application Form</a> </li><li> <a href="https://datascience.foundation/education">Education</a> </li><li> <a href="https://datascience.foundation/legal">Legal Notice</a> </li><li> <a href="https://datascience.foundation/privacy">Privacy</a> </li><li> <a href="https://datascience.foundation/sitemap">Sitemap</a> </li></ul></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</nav>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<div id="mobileMenuSidebar" class="mobile-menu-sidenav" style="width: 0px;">
+			<i class="fa fa-times mobile-menu-close" onclick="closeMobileMenu()"></i>
+
+			<div id="jquery-accordion-menu" class="jquery-accordion-menu">
+				
+				<ul class="fixed-menu-ul"><li class="parent-menu "><div class="parent-menu-title"><a href="https://datascience.foundation/">Home</a></div></li></ul>
+				<div class="menu-scroll-container">
+					<ul>
+						<li class="parent-menu show active" style="cursor: pointer;"><div class="parent-menu-title">Information<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/discussion">Discussion</a> </li><li class=""> <a href="https://datascience.foundation/datatalk">Articles</a> </li><li class="active"> <a href="https://datascience.foundation/sciencewhitepaper">Whitepapers</a> </li><li class=""> <a href="https://datascience.foundation/usecase">Use Cases</a> </li><li class=""> <a href="https://datascience.foundation/datascience">News</a> </li><li class=""> <a href="https://datascience.foundation/contributors">Contributors</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Courses<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/datasciencecourses">Data Science &amp; Analytics</a> </li><li class=""> <a href="https://datascience.foundation/statisticscourses">Statistics and Related Courses</a> </li><li class=""> <a href="https://datascience.foundation/onlinelearning">Online Data Science Courses</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Prodigy<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/prodigy/login">Prodigy Login</a> </li><li class=""> <a href="https://datascience.foundation/prodigy/find-out-more">Prodigy Find Out More</a> </li><li class=""> <a href="https://datascience.foundation/prodigy/academy">Prodigy Free Services</a> </li><li class=""> <a href="https://datascience.foundation/prodigy/feedback">Prodigy Feedback</a> </li><li class=""> <a href="https://datascience.foundation/prodigy/terms-&amp;-conditions">Prodigy T&amp;Cs</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Awards<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/competition">Contributors Competition</a> </li><li> <a href="https://datascience.foundation/writeroftheyear">Data Science Writer</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Membership<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/individual">Individual</a> </li><li class=""> <a href="https://datascience.foundation/organisational">Organisational</a> </li><li class=""> <a href="https://datascience.foundation/scienceuniversity">University</a> </li><li class=""> <a href="https://datascience.foundation/associate">Associate</a> </li><li class=""> <a href="https://datascience.foundation/affiliate">Affiliate</a> </li><li class=""> <a href="https://datascience.foundation/benefit">Benefits</a> </li><li class=""> <a href="https://datascience.foundation/memberfees">Membership Fees</a> </li><li class=""> <a href="https://datascience.foundation/joinus">Join Us</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Consultancy<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/professionalservices">Professional Services</a> </li><li class=""> <a href="https://datascience.foundation/methodology">Project Methodology</a> </li><li class=""> <a href="https://datascience.foundation/unlock-your-data">Unlock Your Data</a> </li><li class=""> <a href="https://datascience.foundation/advanced-analytics">Advanced Analytics</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">Resources<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/big-data-resource">Big Data Resources</a> </li><li class=""> <a href="https://datascience.foundation/technology">Technology Resources</a> </li><li class=""> <a href="https://datascience.foundation/speaker">Speakers</a> </li><li class=""> <a href="https://datascience.foundation/jobs">Data Science Jobs Board</a> </li><li class=""> <a href="https://datascience.foundation/cv">Member CVs</a> </li></ul></li><li class="parent-menu " style="cursor: pointer;"><div class="parent-menu-title">About<i class="fa fa-arrow-down submenu-indicator"></i></div><ul class="submenu"> <li class=""> <a href="https://datascience.foundation/contact">Contact</a> </li><li class=""> <a href="https://datascience.foundation/dsf">Data Science Foundation</a> </li><li class=""> <a href="https://datascience.foundation/steering">Steering Group</a> </li><li class=""> <a href="https://datascience.foundation/professional">Professional Standards</a> </li><li class=""> <a href="https://datascience.foundation/government">Government And Industry</a> </li><li class=""> <a href="https://datascience.foundation/sponsor">Sponsors</a> </li><li class=""> <a href="https://datascience.foundation/supporter">Supporter</a> </li><li class=""> <a href="https://datascience.foundation/applicationform">Application Form</a> </li><li class=""> <a href="https://datascience.foundation/education">Education</a> </li><li class=""> <a href="https://datascience.foundation/legal">Legal Notice</a> </li><li class=""> <a href="https://datascience.foundation/privacy">Privacy</a> </li><li class=""> <a href="https://datascience.foundation/sitemap">Sitemap</a> </li></ul></li>							<li class=""><div class="parent-menu-title"><a href="https://datascience.foundation/subscribe-for-newsletter">Subscribe to Newsletter</a></div></li>
+											</ul>								
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+      
+        
+                    <div class="container common-alert-section page-body-start">
+                            </div>
+                
+     
+        
+<section class="blog" id="section3">
+    <div class="content pt50 pb50">
+        <div class="container">
+            <div class="row">
+                <div class="posts-block col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <article class="post hentry">
+                        <div class="post-content-wrap">
+                            <header class="post-header">
+                                <h3>Knowing all about Outliers in Machine Learning</h3>
+                                <div class="blog-entry-meta pt10">
+                                    <div class="blog-entry-meta-date"> <i class="fa fa-edit"></i> <span class="blog-entry-meta-date-day"><b>A DSF Whitepaper</b></span> </div>
+                                    <div class="blog-entry-meta-date"> <i class="fa fa-calendar"></i>
+                                        <span class="blog-entry-meta-date-day">
+                                            16 June 2020                                        </span>
+                                    </div>
+
+                                    
+                                    <div class="blog-entry-meta-date vertical-align-middle">
+                                        <i class="fa fa-user"></i> <span class="blog-entry-meta-date-day"> Mayank Tripathi </span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-xs-12 pl0 mt10 mb20">
+                                                                                    <div class="blog-entry-meta-btn vertical-align-middle inline-block"> <a class="btn btn-primary btn-lg mb10 mr10" style="padding: 10px 16px;" href="https://datascience.foundation/individual/view/1094">Author Profile</a></div>
+                                            <div class="blog-entry-meta-btn vertical-align-middle inline-block"> <a class="btn btn-primary btn-lg mr10 mb10" style="padding: 10px 16px;" href="https://datascience.foundation/portfolio/mayanktripathi">Other Articles</a></div>
+                                        
+                                                                                <div class="blog-entry-meta-btn vertical-align-middle inline-block">
+                                            <a class="btn btn-primary btn-lg author-follow-btn author-follow-btn-detail mb10 mr10  non-dsf-member" author-id="1094" author-type="User" title="Follow Mayank" style="padding: 10px 16px;">Follow <span class="count">(26)</span>                                            </a>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="social-share-buttons" style="clear: both; display: block;">
+                                        <p style="font-size: initial;margin-bottom: 0px;font-size: 14px;">Share with your network:</p>
+                                                                                  <div data-description="While working on various dataset to train a Machine Learning model. What is it, that you look for? What is the most important part of the EDA phase? There are certain things which, if they are not done in the EDA phase, can affect further statistical / Machine Learning modelling. One of the answers ..." data-image="https://datascience.foundation/img/logo_200.png" data-title="Knowing all about Outliers in Machine Learning" data-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" data-short-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" class="button btn btn-primary btn-lg mt10 mb10 mr10 button share-button facebook-share-button st-custom-button st-hide-label" data-network="facebook" rel="Whitepaper" rel1="134" rel2="Facebook" rel3="machine-learning"><i class="fa fa-facebook "></i><span class="count"></span></div>
+                                          
+                                          <div data-description="While working on various dataset to train a Machine Learning model. What is it, that you look for? What is the most important part of the EDA phase? There are certain things which, if they are not done in the EDA phase, can affect further statistical / Machine Learning modelling. One of the answers ..." data-image="https://datascience.foundation/img/logo_200.png" data-title="Knowing all about Outliers in Machine Learning" data-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" data-short-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" class="button btn btn-primary btn-lg mt10 mb10 mr10 button share-button linkedin-share-button st-custom-button st-hide-label" data-network="linkedin" rel="Whitepaper" rel1="134" rel2="Linkedin" rel3="machine-learning"><i class="fa fa-linkedin "></i><span class="count"></span></div>
+
+                                          <div data-description="While working on various dataset to train a Machine Learning model. What is it, that you look for? What is the most important part of the EDA phase? There are certain things which, if they are not done in the EDA phase, can affect further statistical / Machine Learning modelling. One of the answers ..." data-image="https://datascience.foundation/img/logo_200.png" data-title="Knowing all about Outliers in Machine Learning" data-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" data-short-url="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" class="button btn btn-primary btn-lg mt10 mb10 mr10 button share-button twitter-share-button st-custom-button" data-network="twitter" rel="Whitepaper" rel1="134" rel2="Twitter" rel3="machine-learning"><i class="fa fa-twitter "></i><span class="count">1</span></div>
+
+                                      </div>
+                                </div>
+                            </header>
+
+                            <div class="article-description">
+                                <div class="col-md-12 row">
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning.jpg"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt20">While working on various datasets to train a Machine Learning model. What is it, that you look for? What is the most important part of the Exploratory Data Analysis (EDA) phase? There are certain things which, if they are not done in the EDA phase, can affect further statistical / Machine Learning modelling.</p>
+
+<p>One of the answers is to find the <strong>“Outliers”.</strong></p>
+
+<p>In this post we will try to understand all about outliers by answering the following questions, and at the end of the paper, will use Python to create some examples.</p>
+
+<ul>
+	<li>What Outlier is?</li>
+	<li class="pt5">How the Outlier are introduced in the datasets?</li>
+	<li class="pt5">How to detect Outliers?</li>
+	<li class="pt5">Why is it important to identify the outliers?</li>
+	<li class="pt5">What are the types of Outliers?</li>
+	<li class="pt5">What are the methods to prevent outliers?</li>
+</ul>
+
+<h4 class="pt10"><strong>What Outlier is?</strong></h4>
+
+<p class="mt10">As per Wikipedia definition,</p>
+
+<p><i>'In statistics, an <strong>Outlier</strong> is an observation point that is distant from other observations.'</i></p>
+
+<p>The definition suggests to us that an outlier is something which is an odd-one-out or the one that is different from the crowd. Some statisticians define outliers as ‘having a different underlying behavior than the rest of the data’. Alternatively, an outlier is a data point that is distant from other points.</p>
+
+<p>Please don’t confuse this definition with that of an Imbalanced dataset, though there are some similarities in the definitions. We will not going into much detail on this for now, and will have separate article on Imbalanced datasets later: An imbalanced data set in terms of machine learning is where one class label has far fewer samples compared to another class label.</p>
+
+<p>From the image below we can see that the sample points in Green are close to each other, whereas the two sample points in Red are far apart from them. These red sample points are outliers.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_sample_points_in_green_are_near_to_each_other.jpg"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<h4><strong>How the Outlier are introduced in the datasets?</strong></h4>
+
+<p class="mt10">Now we know what outlier is. Are you also wondering how outlier are introduced to the population or dataset? The Outlier may be due to just variability in the measurement or may indicate experimental errors.</p>
+
+<p>Outliers are first introduced to the population while gathering or collecting the data. Data gathering or data collection is itself a big topic to discuss. Will not be going into this now, but just to share some facts. Data can be collected in many ways be it via Interview; Questionnaires &amp; Survey; Observations; Documents &amp; Records; Focus groups; Oral History etc., and in this Tech era Internet; IT sensors etc., are generating data for us.</p>
+
+<p>Another possible cause of outliers could be Incorrect entry; Misreporting of data or observations; Sampling errors while doing the experiment; Exceptional but True value. Though, you will not be aware of the outliers at in the collection phase. The outliers can be a result of a mistake during data collection or they can be just an indication of variance in your data.</p>
+
+<p>If possible, outliers should be excluded from the data set. However, detecting anomalous instances might be difficult, and is not always possible. Data Science Developers and statisticians don’t like to declare outliers too quickly. The ‘too large’ number could be a data entry error, a scale problem, or just a really big number.</p>
+
+<p>The low income could be real, an error, or a confusion of household and individual income. And sometimes you get zeros–often, ’No’, – or answers to surveys which seem questionable. Statisticians care about outliers from the point of view of how they impact the analysis.</p>
+
+<h4><strong>Type of Outliers</strong></h4>
+
+<p class="mt10">There are mainly 3 types of Outliers.</p>
+
+<ol>
+	<li><strong>Point or global Outliers:</strong> Observations anomalous with respect to the majority of observations in a feature. In-short A data point is considered a global outlier if its value is far outside the entirety of the data set in which it is found.
+
+	<p class="mt10">Example: In a class all student age will be approx. similar, but if see a record of a student with age as 500. It’s an outlier. It could be generated due to various reason.</p>
+	</li>
+	<li><strong>Contextual (Conditional) Outliers:</strong> Observations considered anomalous given a specific context.A data point is considered a contextual outlier if its value significantly deviates from the rest of the data points in the same context. Note that this means that same value may not be considered an outlier if it occurred in a different context. If we limit our discussion to time series data, the “context” is almost always temporal, because time series data are records of a specific quantity over time. It’s no surprise then that contextual outliers are common in time series data.In Contextual Anomaly values are not outside the normal global range but are abnormal compared to the seasonal pattern.
+	<p class="mt10">Example: World economy falls drastically due to COVID-19. Stock Market crashes due to the scam in 1992; in 2020 due to COVID-19. Usual data points will be near to each other whereas data point during the specific period will either up or down very far. This is not due to erroneous, but it’s an actual observation data point.</p>
+	</li>
+	<li><strong>Collective Outliers:</strong> A collection of observations anomalous but appear close to one another because they all have a similar anomalous value.
+	<p class="mt10">A subset of data points within a data set is considered anomalous if those values as a collection deviate significantly from the entire data set, but the values of the individual data points are not themselves anomalous in either a contextual or global sense. In time series data, one way this can manifest is as normal peaks and valleys occurring outside of a time frame when that seasonal sequence is normal or as a combination of time series that is in an outlier state as a group.</p>
+	</li>
+</ol>
+
+<h4><strong>Why is it important to identify the outliers? </strong></h4>
+
+<p class="mt10">Machine learning algorithms are sensitive to the range and distribution of attribute values. Data outliers can spoil and mislead the training process resulting in longer training times, less accurate models and ultimately poorer results.</p>
+
+<p>For more details refer to <a href="https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/" target="_blanck">https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/</a></p>
+
+<h4><strong>How to detect Outliers?</strong></h4>
+
+<p class="mt10">Various techniques have been proposed for dealing with outliers, which may be grouped into two broad approaches, namely algorithm level and data level techniques.</p>
+
+<p>The former aims to modify a learning algorithm to cope with the dataset and are known to have relatively high computational cost.</p>
+
+<p>The latter is classifier-independent and relatively easy to apply because it focuses on data preprocessing techniques.</p>
+
+<p>For example, to deal with outliers, some researchers identify and remove them completely, whereas others control the number of outliers to remove.</p>
+
+<p>These are advanced level techniques, which we will cover in another article, instead in this will take the beginners level approach.</p>
+
+<p>An Outlier can easily be detected using below techniques.</p>
+
+<ol>
+	<li>Visualization Technique</li>
+	<li class="pt5">Visualization Technique</li>
+</ol>
+
+<h4 class="pt10"><strong>Visualization Technique</strong></h4>
+
+<p class="mt10">When we say visualization technique, it does not mean detection by the naked eye. Yes, might do that, but only if the sample data points are few and distinctive. For example, being presented with images of animals and having to identify the odd-man-out. Or from the emojis shown in the first image one can easily detect which one is different: smiling and in yellow color. But real-life data points are not like this, they are collected in millions, possibly billions of records. So, we will use plotting or graphical representation techniques to visualize the outliers.</p>
+
+<p><strong>The very first is a Box Plot. </strong></p>
+
+<p>A box plot is a graphical display for describing the distribution of data. Box plots use the median and the lower and upper quartiles.</p>
+
+<p>An outlier can easily be detected via Box plot where any point above or below the whiskers represent an outlier. This is also known as “Univariate method” as here we are using one variable outlier analysis.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_one_variable_outlier_analysis.jpg"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt20">Note: Box Plot will also be used for multiple variable if we have categorical values.</p>
+
+<p>Outliers can also be spotted using a Histogram, where bulk of observations are on one side, and a few observations appear away from the main group, these represent the outliers.</p>
+
+<p>They can also be spotted using a scatter plot, which helps to understand the degree of associations between two numerical variables, and any observation which is far from the normal association, is an outlier.</p>
+
+<p>You are free to use any kind of plot, as long as you are able to visualize and detect it. The above plotting methods are commonly used.</p>
+
+<h4><strong>With mathematical functions</strong></h4>
+
+<p class="mt10">Along with Visual techniques, we could also use some mathematical functions to detect outliers:</p>
+
+<ul>
+	<li>Z-Score<br>
+	Wikipedia Definition - The Z-score is the signed number of standard deviations by which the value of an observation or data point is above the mean value of what is being observed or measured.
+	<p class="mt10">The intuition behind a Z-score is to describe any data point by finding their relationship with the Standard Deviation and Mean of the group of data points. A Z-score is finding the distribution of data where mean is 0 and standard deviation is 1 i.e. normal distribution.</p>
+
+	<p>While calculating the Z-score, re-scale and center the data and look for data points which are too far from zero. These data points which are way too far from zero will be treated as the outliers. In most of the cases a threshold of 3 or -3 is used i.e., if the Z-score value is greater than or less than 3 or -3 respectively, that data point will be identified as outliers.</p>
+	</li>
+	<li>IQR (Inter Quartile Range) Score<br>
+	Wikipedia Definition - The interquartile range (IQR), also called the mid-spread or middle 50%, or technically H-spread, is a measure of statistical dispersion, being equal to the difference between 75th and 25th percentiles, or between upper and lower quartiles,
+	<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_between_upper_and_lower_quartiles.png"></div>
+
+	<div class="clearfix text-nowrap">&nbsp;</div>
+
+	<p class="mt10">In other words, the IQR is the first quartile subtracted from the third quartile; these quartiles can be clearly seen on a box plot on the data. It is a measure of the dispersion like a standard deviation or variance but is much more robust against outliers. IQR is somewhat like Z-score in terms of finding the distribution of data and then keeping some threshold to identify the outlier.</p>
+	</li>
+</ul>
+
+<p>Note: There are too many techniques to cover all of them in one short article.</p>
+
+<h4><strong>What are the methods to prevent outliers? </strong></h4>
+
+<p class="mt10">Just how much an outlier affects your analysis depends, not surprisingly, on a few factors.</p>
+
+<p>One factor is dataset size: In a large dataset, each individual point carries less weight, so an outlier is less worrisome than the same data point would be in a smaller dataset.</p>
+
+<p>Another consideration is “how much” of an outlier a point might be – just how far out of line with the rest of your dataset a single point is. A point that is ten times as large as your upper boundary will do more damage than a point that is twice as large.</p>
+
+<p>Again, the best way to guard against outliers is your Domain knowledge and experience with outliers.</p>
+
+<p>Here are few tips.</p>
+
+<ul>
+	<li>Drop the outlier records.<br>
+	Sometimes it’s best to completely remove those records from your dataset to stop them from skewing your analysis.</li>
+	<li class="pt10">Cap your outliers’ data.<br>
+	Another way to handle true outliers is to cap them. For example, if you’re using income, you might find that people above a certain income level behave in the same way as those with a lower income. In this case, you can cap the income value at a level that keeps that intact.</li>
+	<li class="pt10">Assign a new value.<br>
+	If an outlier seems to be due to a mistake in your data, try imputing a new value. Common imputation methods include using the mean of a variable or utilizing a regression model to predict the missing value.</li>
+	<li class="pt10">Try a transformation.<br>
+	A different approach to true outliers could be to try creating a transformation of the data rather than using the data itself.
+	<p class="mt10">For example, try creating a percentile version of your original field and working with that new field instead.</p>
+	</li>
+	<li class="pt10"><strong>Mathematical Functions – to identify and drop the outliers</strong><br>
+	Z-score<br>
+	IQR Score</li>
+</ul>
+
+<h4 class="pt10"><strong>Working with Python</strong></h4>
+
+<p class="mt10">To work on a real-world data set, lets start with the Boston Housing Price dataset from Sklearn library.</p>
+
+<p>This dataset can be taken from <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html" target="_blanck">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html</a></p>
+
+<p>As usual will start with importing the required libraries.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_importing_the_required_libraries.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Then we will upload the dataset into boston_df dataframe. This is same example which we have seen before in Linear Regression.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_efore_in_linear_regression.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Let’s identify the outliers using an easy visualization technique which is Box Plot. For this we will use DIS column only to check the outlier. As this is a Uni-variate outlier.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_uni_variate_outlier.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Based on the definition already discussed, that if there is an outlier it will plotted as point in boxplot, while the rest of the population will be grouped together and display as boxes. And the above plot shows three points between 10 to 12, these are the outliers as they are not included in the box of other normal observation.</p>
+
+<p>Can we use multiple features with Box plot? Well it depends, if we have categorical features then we could have use that with any continuous variable and do multivariate outlier analysis. As we do not have categorical value in our Boston Housing dataset, we will jump on to the Scatter Plot.</p>
+
+<p>Based on the definition discussed above for scatter plost to identify the outlier, the scatter plot is the collection of points that shows values for two variables. Let’s try and draw scatter plot for two variables from our housing dataset.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_variables_from_our_housing_dataset.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">From the above plot, we can see most of the data points are clustered at bottom left side but there are few points which are far from the population, like top right corner. These are the Outliers.</p>
+
+<p>Here I have used specific features, please play around with other features.</p>
+
+<p>Now let’s discover the outliers with mathematical functions.</p>
+
+<p>We start with Z-score function defined in scipy library to detect the outliers.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_scipy_library_to_detect_the_outliers.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Looking the code and the output above, it is difficult to say which data point is an outlier.</p>
+
+<p>Let’s try and define a threshold to identify an outlier. As discussed above the default or usual value is 3.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_discussed_above_the_default_or_usual.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Still I could not understand much from the output. Don’t worry. The first array contains the list of row numbers and second array respective column numbers, which mean z[55][1] have a Z-score higher than 3. but z[55][2] or any other does not have Z-score higher than 3. Similarly for z[56][1], z[57][1], z[102][11], z[141][12] etc. are having z-score higher than 3.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_having_z_score_higher_than_3.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Here I tried to display a few of them… also one to verify the records with lower Z-score, we could do as below.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_we_could_do_a_below.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Let’s understand this in more details. Limiting down to one feature “ZN”. From above for row number 55 and column 1 has Z-Score higher than 3 (threshold) and from below we can see that that’s true. The rest of the values are in 20’s whereas for row # 55 its 90 which is clearly indicates that this value is far from being a usual value, and thus mathematically we have proved its an outlier.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_mathematically_we_proved.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Once we know which records are Outliers, we can easily remove them from our dataset if required.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_from_our_dataset_if_required.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">So, after removing the Outlier our dataset will have 415 rows. It means we have removed almost (506-415) 91 records from the dataset.</p>
+
+<p>Another mathematical function is IQR (Inter Quartile Range). Python gave us the method quantile</p>
+
+<p>which we directly use or alternatively we can use a method from numpy which is percentile.</p>
+
+<p>The next step is to identify lower bound value and upper bound value.</p>
+
+<p>Any value away from this lower and upper bound value is considered as an outlier.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_from_our_dataset_if_required_5.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Once we have the quantile values, we will subtract Q3 from Q1 to get the IQR Value.</p>
+
+<p>Next is to calculate the Lower Bound (Q1 – 1.5 * IQR) and Upper Bound (Q3 – 1.5 * IQR) Value, as based on this will check the dataset which is outlier indicated as True.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_from_our_dataset_if_required_3.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Once we know that which records are Outlier, we can easily remove them from our dataset if required.</p>
+
+<p>So, after removing the Outlier our dataset will have 274 rows. It means we have removed almost (506-274) 232 records from the dataset.</p>
+
+<p>To remove the outlier, I am using the negate (~) in the code from above which we used to see the outlier.</p>
+
+<div class="col-md-12  text-center col-xs-12"><img alt="" class="img-responsive m pt20" src="./Knowing all about Outliers in Machine Learning_files/knowing_all_about_outliers_in_machine_learning_from_our_dataset_if_required_4.png"></div>
+
+<div class="clearfix text-nowrap">&nbsp;</div>
+
+<p class="mt10">Note: With the Z-score we were able to drop 91 rows but with IQR we have dropped 232 rows.</p>
+
+<p>Also, different outlier treatments affect models differently.</p>
+
+<p>Python Code is available at:<br>
+<a href="https://colab.research.google.com/drive/1ISWQ_muJGqvciMN_f8W37MZTgBfIazat?usp=sharing" target="_blanck">https://colab.research.google.com/drive/1ISWQ_muJGqvciMN_f8W37MZTgBfIazat?usp=sharing</a></p>
+
+<h4><strong>References:</strong></h4>
+
+<ul>
+	<li class="mt10"><a href="https://www.anodot.com/" target="_blanck">https://www.anodot.com/ </a></li>
+	<li class="mt10"><a href="https://www.wikipedia.org/" target="_blanck">https://www.wikipedia.org/</a></li>
+	<li class="mt10"><a href="https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/" target="_blanck">https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/</a></li>
+	<li class="mt10"><a href="https://www.kdnuggets.com/2017/01/3-methods-deal-outliers.html" target="_blanck">https://www.kdnuggets.com/2017/01/3-methods-deal-outliers.html</a></li>
+</ul>
+</div>                            </div>
+                            <div class="clearfix"></div>
+                            <div class="rating_review">
+                                <div class="star_rating mt20">
+                                
+                                    <div class="mb5"><h5 class="mb0"><strong>Rate this Whitepaper </strong></h5><span>Rate 1 - 10 by clicking on a star</span></div>                                        <div class="rating_options submit_rating" average="9" title="Please rate this whitepaper.">
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="1" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="2" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="3" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="4" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="5" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="6" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="7" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="8" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star" aria-hidden="true" rel-count="9" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                            <a href="javascript:;" class="fa fa-star-o" aria-hidden="true" rel-count="10" rel-id="134" rel-type="Whitepaper" rel-url="https://datascience.foundation/site/rating"></a>
+                                                                                        <span class="review_detail">
+                                                (<span class="total_rating">3</span> Ratings)                                                (<span class="total_comment">1</span> Comments)                                                (<span class="total_view">13440</span> Views)                                            </span>
+                                        </div>
+                                                                    </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <footer class="post-footer">
+                                <a class="btn btn-primary btn-lg mt10 mb10 mr10" href="https://datascience.foundation/downloadpdf/134/whitepaper" onclick="trackOutboundLink(&#39;https://datascience.foundation/downloadpdf/134/whitepaper&#39;);"><i class="fa fa-download pr5 pl5"></i><span class="hidden-xs article_footer_btn_span">Download</span></a>
+                                                                <button type="button" id="myBtn2" class="btn btn-primary btn-lg mb10 mr10 mt10 padding_left_new" data-toggle="modal" data-target="#myModal_134" data-backdrop="static" data-keyboard="false"><i class="fa fa-envelope pr5 pl5"></i><span class="hidden-xs article_footer_btn_span">Email</span></button>
+                                                                <p class="article-description">If you found this Whitepaper interesting, why not review the other Whitepapers in our <a href="https://datascience.foundation/sciencewhitepaper" target="_blank"> archive</a>.</p>
+                                                                    <div class="col-xs-12 pl0 mt10">
+                                        <a class="btn btn-primary btn-lg mt5 mb10 mr10 " href="https://datascience.foundation/login#https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning">Login to Comment and Rate</a>
+                                    </div>
+                                                            </footer>
+                            <div class="modal fade" id="myModal_134" role="dialog">
+                                <div class="modal-dialog margin-pdf">
+                                    <div class="modal-content pdf-margin">
+                                        <div class="modal-header">
+                                            <button type="button" class="close modal_close_button" data-dismiss="modal">×</button>
+                                            <h4 class="pdf-title">Email a PDF Whitepaper</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="w0" action="https://datascience.foundation/sciencewhitepaper" method="post">
+<input type="hidden" name="_frontendCSRF" value="N5FS_CJ7UNAsNzOKA7OT01TWIbDKYOAYx93aAGZahnAa8wjIEisd4llvdu5A6qaaAJ5k844jkUqvu7tKFTSrJg==">                                            <div class="screen-reader-2">
+                                                <div class="input-group-new">
+                                                    <div class="form-group field-sendpdf-fromname required">
+
+<input type="text" id="sendpdf-fromname" class="form-control-wrpper form-control" name="SendPdf[fromname]" placeholder="Name of Sender" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                                                    <span class="input-group-addon-contact"></span>
+                                                </div>
+                                            </div>
+                                            <div class="screen-reader-2">
+                                                <div class="input-group-new">
+                                                    <div class="form-group field-sendpdf-fromemail required">
+
+<input type="text" id="sendpdf-fromemail" class="form-control-wrpper form-control" name="SendPdf[fromemail]" placeholder="Email of Sender" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                                                    <span class="input-group-addon-contact"></span>
+                                                </div>
+                                            </div>
+                                            <div class="screen-reader-2">
+                                                <div class="input-group-new">
+                                                    <div class="form-group field-sendpdf-toname required">
+
+<input type="text" id="sendpdf-toname" class="form-control-wrpper form-control" name="SendPdf[toname]" placeholder="Name of Recipient" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                                                    <span class="input-group-addon-contact"></span>
+                                                </div>
+                                            </div>
+                                            <div class="screen-reader">
+                                                <div class="input-group-new">
+                                                    <div class="form-group field-sendpdf-toemail required">
+
+<input type="text" id="sendpdf-toemail" class="form-control-wrpper form-control" name="SendPdf[toemail]" placeholder="Email of Recipient" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                                                    <span class="input-group-addon-contact"></span>
+                                                </div>
+                                            </div>
+                                            <div class="screen-reader-2 ml5 mr5">
+                                                <div class="input-group-new">
+                                                    <div class="form-group field-sendpdf-recaptcha">
+
+<input type="hidden" id="sendpdf-recaptcha" class="form-control" name="SendPdf[reCaptcha]"><div id="sendpdf-recaptcha-recaptcha-w0" class="g-recaptcha" data-sitekey="6LeFtrgUAAAAAGuLSGNjqtEI1foN858_nS1ou7-J" data-input-id="sendpdf-recaptcha" data-form-id="w0"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./Knowing all about Outliers in Machine Learning_files/anchor.html" width="304" height="78" role="presentation" name="a-mqy07ykny6wr" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+
+<p class="help-block help-block-error"></p>
+</div>                                                </div>
+                                            </div>
+                                            <div class="form-group field-sendpdf-pdfid required">
+
+<input type="hidden" id="sendpdf-pdfid" class="form-control" name="SendPdf[pdfid]" value="134">
+
+<p class="help-block help-block-error"></p>
+</div>                                            <div class="bottom-panal_pdf">
+                                                <div class="button-area-text">
+                                                    <button type="submit" class="btn btn-info">Submit</button>                                                </div>
+                                            </div>
+                                            </form>                                        </div>
+                                        <div class="modal-footer"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="forum_thread mt20 forum-index">
+                            <div id="w0" class="list-view">
+                                                                <h3>Comments: </h3>
+                                                                    <div data-key="3420" id="thread_3420">
+                                        <div class="comment">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="media">
+                                                        <div class="media-left" style="min-width: 100px;">
+                                                                                                                                                                                        <img class="img-object" src="./Knowing all about Outliers in Machine Learning_files/1598392963-782617566.jpg" width="50" height="50" alt="">
+                                                                                                                    </div>
+
+                                                        <div class="media-right" style="width:100%;">
+                                                            <div class="col-md-9 pl0 pr0">
+                                                                                                                                <p class="text-muted">Mayank Tripathi</p>
+                                                                <p class="text-muted">
+                                                                    <i class="glyphicon glyphicon-calendar"></i> 23 Jun 2020                                                                    <i class="glyphicon glyphicon-time"></i> 07:56:03 PM                                                                </p>
+                                                            </div>
+                                                            <div class="col-md-3 pl0 pr0 pull-right">
+                                                            </div>
+                                                            <div class="col-md-12 pl0 pr0">
+                                                                <div class="div_message message article-description discussion-comment break-word-class pt0">
+                                                                    <p>One more thing which i missed in the article, that presence of outliers affects the distribution of the data. 
+</p><p>
+Let's examine what can happen to a data set with outliers.  </p><p>For the sample data set:
+</p><p>
+</p><p>1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4
+</p><p>
+</p><p>We find the following: mean, median, mode, and standard deviation
+</p><p>
+</p><p>Mean = 2.58
+</p><p>
+</p><p>Median = 2.5
+</p><p>
+</p><p>Mode = 2
+</p><p>
+</p><p>Standard Deviation = 1.08</p><p><br></p><p>
+</p><p>
+</p><p>If we add an outlier to the data set:
+</p><p>
+</p><p>1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 400
+</p><p>
+</p><p>The new values of our statistics are:
+</p><p>
+</p><p>Mean = 35.38
+</p><p>
+</p><p>Median = 2.5
+</p><p>
+</p><p>Mode = 2
+</p><p>
+</p><p>Standard Deviation = 114.74</p><p><br></p><p>
+</p><p>
+</p><p>It can be seen that having outliers often has a significant effect on the mean and standard deviation and hence affecting the distribution. </p><p>We must take steps to remove outliers from our data sets. One of the easiest way to handle this is log transformation.</p><p>Hope this information will help you.</p>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                
+                                                                    <h4> <a href="https://datascience.foundation/discussion/machine-learning/knowing-all-about-outliers-in-machine-learning"> Go to discussion page</a> </h4>
+                                                            </div>
+                    </div></article>
+                </div>
+                
+                <div class="sidebar col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="widget search-form">
+                        <form name="enqiry" id="searchArticlesForm" method="get" action="https://datascience.foundation/sciencewhitepaper" enctype="multipart/form-data">
+                            <div class="input-group">
+                                <input type="text" class="search-input form-control search_articles_name" name="search_whitepaper" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="subscribe-btn btn" type="submit"><i class="fa fa-search"></i></button>
+                                </span> </div>
+                        </form>
+                    </div>
+
+                    <div class="widget category mb0">
+                        <h3 class="title pb15">Categories</h3>
+                        <ul class="category-list slide">
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/data-science">Data Science</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/data-security">Data Security</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/analytics">Analytics</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/machine-learning">Machine Learning</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/artificial-intelligence">Artificial Intelligence</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/robotics">Robotics</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/visualisation">Visualisation</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/internet-of-things">Internet of Things</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/people-&amp;-leadership">People &amp; Leadership Skills</a>
+                                </li>
+                                                            <li>
+                                    <a href="https://datascience.foundation/sciencewhitepaper/category/other-topics">Other Topics</a>
+                                </li>
+                                                    </ul>
+                    </div>
+
+                                            <div class="widget tabs mb0 mt40">
+                            <div id="horizontal-tabs" style="margin-bottom: 0px;">
+                                <ul class="tabs">
+                                    <li id="tab2"><a href="https://datascience.foundation/contributors">Top Active Contributors</a></li>
+                                </ul>
+                                <div class="contents">
+                                    <div style="display: block;" id="content1" class="tabscontent">
+                                        <ul class="posts">
+                                                                                        <li style="margin-bottom: 0px;padding-bottom:0px !important;">
+                                                    <h5><a href="https://datascience.foundation/portfolio/balakrishnansubramanian"> Balakrishnan Subramanian </a></h5>
+                                                </li>
+                                                                                            <li style="margin-bottom: 0px;padding-bottom:0px !important;">
+                                                    <h5><a href="https://datascience.foundation/portfolio/abhishekmishra"> Abhishek Mishra </a></h5>
+                                                </li>
+                                                                                            <li style="margin-bottom: 0px;padding-bottom:0px !important;">
+                                                    <h5><a href="https://datascience.foundation/portfolio/mayanktripathi"> Mayank Tripathi </a></h5>
+                                                </li>
+                                                                                            <li style="margin-bottom: 0px;padding-bottom:0px !important;">
+                                                    <h5><a href="https://datascience.foundation/portfolio/michaelbaron"> Michael Baron </a></h5>
+                                                </li>
+                                                                                            <li style="margin-bottom: 0px;padding-bottom:0px !important;">
+                                                    <h5><a href="https://datascience.foundation/portfolio/santoshkumar"> Santosh Kumar </a></h5>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                                            <div class="widget tabs mb0 mt20">
+                            <div id="horizontal-tabs">
+                                <ul class="tabs">
+                                    <li id="tab2"><a href="https://datascience.foundation/sciencewhitepaper">Recent Posts</a></li>
+                                </ul>
+                                <div class="contents">
+                                    <div style="display: block;" id="content1" class="tabscontent">
+                                        <ul class="posts">
+                                                                                        <li>
+                                                <h5 class="sidebarArticle"><a href="https://datascience.foundation/sciencewhitepaper/survey-on-covid-19-vaccination-in-india"> Survey on Covid 19 Vaccination in India</a></h5>
+                                                <span class="color">08 June 2021</span>
+                                            </li>
+                                                                                        <li>
+                                                <h5 class="sidebarArticle"><a href="https://datascience.foundation/sciencewhitepaper/data-analysis-with-pandas"> Data Analysis with Pandas</a></h5>
+                                                <span class="color">15 February 2021</span>
+                                            </li>
+                                                                                        <li>
+                                                <h5 class="sidebarArticle"><a href="https://datascience.foundation/sciencewhitepaper/deep-learning-fighting-covid-19-with-neural-networks"> DEEP LEARNING: FIGHTING COVID-19 WITH NEURAL NETWORKS</a></h5>
+                                                <span class="color">31 January 2021</span>
+                                            </li>
+                                                                                        <li>
+                                                <h5 class="sidebarArticle"><a href="https://datascience.foundation/sciencewhitepaper/top-10-best-free-and-open-source-backup-solutions"> TOP 10 BEST FREE AND OPEN SOURCE BACKUP SOLUTIONS</a></h5>
+                                                <span class="color">30 December 2020</span>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                                            <div class="widget tabs mb0 mt20">
+                            <div id="horizontal-tabs">
+                                <ul class="tabs">
+                                    <li id="tab2" style="cursor: default;">Highest Rated Posts</li>
+                                </ul>
+                                <div class="contents">
+                                    <div style="display: block;" id="content1" class="tabscontent">
+                                        <ul class="posts">
+                                                                                        <li class="sidebarArticle">
+                                                <h5><a href="https://datascience.foundation/sciencewhitepaper/piecewise-hazard-model-for-under-five-child-mortality"> Piecewise hazard model for under-five child mortality </a></h5>
+                                                <span class="color">
+                                                    <div class="rated">
+                                                                                                                        <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                </div>
+                                                </span>
+                                            </li>
+                                                                                        <li class="sidebarArticle">
+                                                <h5><a href="https://datascience.foundation/sciencewhitepaper/the-transformational-shift-in-educational-outcomes-in-london-2003-to-2013-the-contribution-of-local-authorities"> The transformational shift in educational outcomes in London 2003 to 2013: the contribution of local authorities </a></h5>
+                                                <span class="color">
+                                                    <div class="rated">
+                                                                                                                        <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                </div>
+                                                </span>
+                                            </li>
+                                                                                        <li class="sidebarArticle">
+                                                <h5><a href="https://datascience.foundation/sciencewhitepaper/top-10-best-free-and-open-source-backup-solutions"> TOP 10 BEST FREE AND OPEN SOURCE BACKUP SOLUTIONS </a></h5>
+                                                <span class="color">
+                                                    <div class="rated">
+                                                                                                                        <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                </div>
+                                                </span>
+                                            </li>
+                                                                                        <li class="sidebarArticle">
+                                                <h5><a href="https://datascience.foundation/sciencewhitepaper/deep-learning-fighting-covid-19-with-neural-networks"> DEEP LEARNING: FIGHTING COVID-19 WITH NEURAL NETWORKS </a></h5>
+                                                <span class="color">
+                                                    <div class="rated">
+                                                                                                                        <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                </div>
+                                                </span>
+                                            </li>
+                                                                                        <li class="sidebarArticle">
+                                                <h5><a href="https://datascience.foundation/sciencewhitepaper/understanding-imbalanced-datasets-and-techniques-for-handling-them"> Understanding Imbalanced Datasets and techniques for handling them </a></h5>
+                                                <span class="color">
+                                                    <div class="rated">
+                                                                                                                        <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                            <a class="fa fa-star" aria-hidden="true"></a>
+                                                                                                                </div>
+                                                </span>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="add_attachments_html" style="display:none;">
+    <div data-behavior="pending_attachments file_drop_target" data-sortable="true" class="attachments add_attachments" id="add_attachments">
+        <span class="prompt_graphic"></span>
+        <div class="file_input_button">
+            <span data-without-features="files_api">To attach files</span>
+            <span class="file_input_container">
+                <input name="file" type="file" multiple="" onchange="$(document).trigger(&#39;ie:change&#39;, this)" tabindex="-1">
+                <a class="decorated" data-behavior="local_file_picker" href="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning#" tabindex="-1">from your computer</a>
+            </span>
+        </div>
+        <ul class="pending_attachments ui-sortable" data-role="accept_as_input"></ul>
+    </div>
+</div>
+
+<div class="modal fade" id="noCommentAccessModal" role="dialog">
+	<div class="modal-dialog margin-pdf">
+		<!-- Modal content-->
+		<div class="modal-content pdf-margin">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="pdf-title">Comment</h4>
+				</div>
+				<div class="modal-body">
+					<p>You cannot reply to your own comment or question. You can respond to another member's comment in this thread.</p>
+				</div>
+		</div>
+	</div>
+</div>
+
+<script>
+jQuery(document).ready(function() {
+    var canComment = 'TRUE';
+	$('#comment-form-custom').submit(function(e) {
+		if(canComment === "FALSE") {
+			$("#noCommentAccessModal").modal('show');
+			return false;
+		}
+    });
+    // start discussion
+    $('#forumthread-message').summernote({
+		height: 300,
+		disableDragAndDrop: true,
+		toolbar: [
+            ['font', ['bold', 'italic', 'underline'/*, 'clear'*/]],
+            ['para', ['ul', 'ol'/*, 'paragraph'*/]],
+				
+		],
+		callbacks: {
+			onInit: function() {
+				$(".note-group-select-from-files").remove();
+				setTimeout(function() {
+					var attachment_html = $('#add_attachments_html').html();
+					$('#add_attachments_html').remove();
+					$('.note-editing-area').append(attachment_html);
+				}, 100);
+
+			},
+			onKeydown: function (e) { 
+				var t = e.currentTarget.innerText;
+				var min = $("#forumthread-message").attr('min');
+				var max = $("#forumthread-message").attr('max');
+				if(t.length < min) {
+					var showCount = '<span style="color: red;">' + min + '</span>';
+				} else {
+					var showCount = t.length;
+				}
+				$('#forumthread-message').closest('div.topic-section').find('span.charLength').html(showCount + ' / '+ max + ' (Min. / Max. Characters)');
+
+				if (t.length >= max) {
+					//delete keys, arrow keys, copy, cut, select all
+					if (e.keyCode != 8 && !(e.keyCode >=37 && e.keyCode <=40) && e.keyCode != 46 && !(e.keyCode == 88 && e.ctrlKey) && !(e.keyCode == 67 && e.ctrlKey) && !(e.keyCode == 65 && e.ctrlKey))
+					e.preventDefault(); 
+				} 
+			},
+			onKeyup: function (e) {
+				var t = e.currentTarget.innerText;
+				var min = $("#forumthread-message").attr('min');
+				var max = $("#forumthread-message").attr('max');
+				if(t.length < min) {
+					var showCount = '<span style="color: red;">' + min + '</span>';
+				} else {
+					var showCount = t.length;
+				}
+				$('#forumthread-message').closest('div.topic-section').find('span.charLength').html(showCount + ' / '+ max + ' (Min. / Max. Characters)');
+			},
+			onPaste: function (e) {
+				var t = e.currentTarget.innerText;
+				var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+				e.preventDefault();
+				var maxPaste = bufferText.length;
+				var min = $("#forumthread-message").attr('min');
+				var max = $("#forumthread-message").attr('max');
+				if(t.length + bufferText.length > max){
+					maxPaste = max - t.length;
+				}
+				if(maxPaste > 0){
+					document.execCommand('insertText', false, bufferText.substring(0, maxPaste));
+				}
+				if(t.length < min) {
+					var showCount = '<span style="color: red;">' + min + '</span>';
+				} else {
+					var showCount = t.length;
+				}
+				$('#forumthread-message').closest('div.topic-section').find('span.charLength').html(showCount + ' / '+ max + ' (Min. / Max. Characters)');
+			},
+			onChange: function(contents, $editable) {
+				var code = $(this).summernote("code");
+				$("#forumthread-message").val(contents);
+			}
+		}
+	});
+
+    
+});
+</script>
+        
+<section id="section7" class="contacts">
+            <div class="contact-form">
+            <div class="container"> <a class="scrollup hide-scrollup-mobile" style="display: inline;"><i class="fa fa-chevron-circle-up"></i></a>
+                <div class="row">
+                    
+                    <div class="col-md-12 big-title wow bounceIn footer" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <h2 style="background:none; border:none">Get in touch</h2>
+                        </div>
+                        
+                        <h2 style="height:2px">&nbsp;</h2>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <form id="Subscribe" action="https://datascience.foundation/subscribefooter" method="post">
+<input type="hidden" name="_frontendCSRF" value="N5FS_CJ7UNAsNzOKA7OT01TWIbDKYOAYx93aAGZahnAa8wjIEisd4llvdu5A6qaaAJ5k844jkUqvu7tKFTSrJg==">                    <input type="hidden" name="r" value="/subscribefooter">
+                    <fieldset>
+                        <div class="row p">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInLeft no-padding-mobile" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="30">
+                                        <span id="subsname" class="subs-error"></span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required="" onchange="return newvalidateForm1()" maxlength="100">
+                                        <span id="subsemail" class="subs-error"></span>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6" id="staticParentFooter">
+                                        <input class="form-control" type="text" id="phone" name="phone" placeholder="Phone" value="" required="" maxlength="15">
+                                        <span id="subsphone" class="subs-error"></span>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xs-12">
+                                        <div class="col-md-9 col-xs-9 best_time_new no-padding-left">
+                                            <input class="form-control best-time-to-call hasDatepicker" type="text" id="date1" name="time" placeholder="Best time to call" value="" required="">
+                                        </div>
+                                        <div class="col-md-3 col-xs-3 best_time_hour_new" style="padding: 0px;">
+                                            <select class="form-control" name="datetime" style="padding: 0 10px;">
+                                                <option value="8AM">8 AM</option>
+                                                <option value="9AM">9 AM</option>
+                                                <option value="10AM">10 AM</option>
+                                                <option value="11AM">11 AM</option>
+                                                <option value="12PM">12 PM</option>
+                                                <option value="1PM">1 PM</option>
+                                                <option value="2PM">2 PM</option>
+                                                <option value="3PM">3 PM</option>
+                                                <option value="4PM">4 PM</option>
+                                                <option value="5PM">5 PM</option>
+                                                <option value="6PM">6 PM</option>
+                                            </select>
+                                        </div>
+                                        <span id="subsdate" class="subs-error"></span>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xs-12">
+                                            <div class="form-group field-footer-recaptcha">
+
+<input type="hidden" id="footer-recaptcha" class="form-control" name="Footer[reCaptcha]"><div id="footer-recaptcha-recaptcha-Subscribe" class="g-recaptcha" data-sitekey="6LeFtrgUAAAAAGuLSGNjqtEI1foN858_nS1ou7-J" data-input-id="footer-recaptcha" data-form-id="Subscribe"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./Knowing all about Outliers in Machine Learning_files/anchor(1).html" width="304" height="78" role="presentation" name="a-nqqoa2dvchg" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+
+<p class="help-block help-block-error"></p>
+</div>                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeInRight no-padding-mobile " style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" id="text" name="text" rows="3" cols="40" placeholder="Message ..." required="" maxlength="1000"></textarea>
+                                        <span id="substext" class="subs-error"></span>
+                                    </div>
+                                    <input type="hidden" name="page" value="footer">
+                                    <input type="hidden" name="url" value="http://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-sm-1 mt2 col-xs-1">
+                                            <input type="checkbox" name="terms" value="1" class="chk-bx">
+                                        </div>
+                                        <div class="col-sm-10 col-xs-10 clr-footer-radio">Subscribe to latest Data science Foundation news </div>
+                                        <br>
+                                        <span id="white-error" class="subs-error"></span>
+                                    </div>
+                                    
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-sm-1 mt2 col-xs-1">
+                                            <input type="checkbox" name="privacy" value="1" class="privacy-chk-bx">
+                                        </div>
+                                        <div class="col-sm-10 col-xs-10 clr-footer-radio">I have read and agree to the Data science Foundation Privacy Policy</div>
+                                        <br>
+                                        <span id="white-error1" class="subs-error"></span>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 mt20">
+                                        <input type="submit" class="btn btn-2 btn-2c" id="subscribe" value="Submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    </form>                </div>
+            </div>
+        </div>
+        
+    <footer class="footer-wrap text-center">
+        <div class="container">
+            <ul class="social social-icons-footer-bottom wow fadeInDown p" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;">
+                <li class="facebook"><a href="https://www.facebook.com/DataSF/" onclick="trackOutboundLink(&#39;https://www.facebook.com/DataSF/&#39;);" data-toggle="tooltip" title="Facebook" target="blank"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="https://twitter.com/@DataSFoundation" onclick="trackOutboundLink(&#39;https://twitter.com/@DataSFoundation&#39;);" data-toggle="tooltip" title="Twitter" target="blank"><i class="fa fa-twitter"></i></a></li>
+                <li class="linkedin"><a href="https://www.linkedin.com/company/data-science-foundation" onclick="trackOutboundLink(&#39;https://www.linkedin.com/company/data-science-foundation&#39;);" data-toggle="tooltip" title="Linkedin" target="blank"><i class="fa fa-linkedin"></i></a></li>
+
+                <li class="youtube">
+                    <a href="https://www.youtube.com/channel/UCrInkBdw2sk2Jt3054pL9jg" title="YouTube" data-toggle="tooltip" target="blank" onclick="trackOutboundLink(&#39;https://www.youtube.com/channel/UCrInkBdw2sk2Jt3054pL9jg&#39;);"><i class="fa fa-youtube"></i></a>
+                </li>
+            </ul>
+            <ul class="social social-icons-footer-bottom wow fadeInDown p pt15" style="visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;">
+                <li><a href="https://datascience.foundation/">Home</a></li>
+                <li><a href="https://datascience.foundation/information">Information</a></li>
+                <li><a href="https://datascience.foundation/resource">Resources</a></li>
+                <li><a href="https://datascience.foundation/membership">Membership</a></li>
+                <li><a href="https://datascience.foundation/consultancy">Services</a></li>
+                <li><a href="https://datascience.foundation/legal">Legal</a></li>
+                <li><a href="https://datascience.foundation/privacy">Privacy</a></li>
+                <li><a href="https://datascience.foundation/sitemap">Site Map</a></li>
+                <li><a href="https://datascience.foundation/contact">Contact</a></li>
+            </ul>
+            <p class="site-info">© 2021 Data science Foundation. All rights reserved. Data S.F. Limited 09624670</p>
+            <p class="peppersack">Site By-<span><a href="https://www.peppersack.com/" onclick="trackOutboundLink(&#39;https://www.peppersack.com/&#39;);" target="_blank" style="">Peppersack</a></span></p>
+        </div>
+    
+                        <div class="cookie-info">
+                    <p>We use <a data-toggle="modal" data-target="#cookie_modal">cookies</a></p>
+                    <button class="cookieClose">Accept</button>
+                </div>
+            </footer>
+</section>
+<div class="modal fade" id="cookie_modal" role="dialog" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close modal_close_button" data-dismiss="modal">×</button>
+                <h4 class="clr-dark">Cookie Information </h4>
+            </div>
+            <div class="modal-body">
+                <p>We are using cookies to provide statistics that help us to improve your experience of our site. You can choose to use the site without cookies. However, by continuing to use the site without changing your settings, you are agreeing to our use of cookies.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="cookieCloseBtn">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="enquiry_form_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close modal_close_button" data-dismiss="modal">×</button>
+                <h3 class="pdf-title clr-dark">Contact Form </h3>
+            </div>
+            <div class="modal-body">
+                <div class="enquiry-prodigy-message no-display">
+                    <p>This member is participating in the Prodigy programme. This message will be directed to Prodigy Admin the Prodigy Programme manager. <a href="https://datascience.foundation/prodigy/find-out-more">Find out more about Prodigy</a></p>
+                </div>
+                <form id="enquiry-form" action="https://datascience.foundation/site/submit-enquiry" method="post" enctype="multipart/form-data">
+<input type="hidden" name="_frontendCSRF" value="N5FS_CJ7UNAsNzOKA7OT01TWIbDKYOAYx93aAGZahnAa8wjIEisd4llvdu5A6qaaAJ5k844jkUqvu7tKFTSrJg=="><div class="form-group field-enquiry-contact_id">
+
+<input type="hidden" id="enquiry-contact_id" class="contact_id" name="Enquiry[contact_id]">
+
+<p class="help-block help-block-error"></p>
+</div>                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group field-enquiry-name required">
+
+<input type="text" id="enquiry-name" class="form-control" name="Enquiry[name]" placeholder="Name" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group field-enquiry-email required">
+
+<input type="text" id="enquiry-email" class="form-control" name="Enquiry[email]" placeholder="Email" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group field-enquiry-repeate_email required">
+
+<input type="text" id="enquiry-repeate_email" class="form-control" name="Enquiry[repeate_email]" placeholder="Email Confirmation" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group field-enquiry-subject required">
+
+<input type="text" id="enquiry-subject" class="form-control" name="Enquiry[subject]" placeholder="Subject" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                            <div class="col-md-6 staticParentFooter">
+                                <div class="form-group field-enquiry-contact_no required">
+
+<input type="text" id="enquiry-contact_no" class="form-control" name="Enquiry[contact_no]" placeholder="Contact Number" aria-required="true">
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group field-enquiry-message required">
+
+<textarea id="enquiry-message" class="form-control" name="Enquiry[message]" rows="6" placeholder="Message" aria-required="true"></textarea>
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- <span id="captcha-info" class="info"></span>
+                                <div class="re">Refresh</div>
+                                <div class="rand1"></div>
+                                <div class="plus">+</div>
+                                <div class="rand2"></div>
+                                <input type="text" id="total" autocomplete="off" /> -->
+                                <div class="form-group field-enquiry-recaptcha">
+
+<input type="hidden" id="enquiry-recaptcha" class="form-control" name="Enquiry[reCaptcha]"><div id="enquiry-recaptcha-recaptcha-enquiry-form" class="g-recaptcha" data-sitekey="6LeFtrgUAAAAAGuLSGNjqtEI1foN858_nS1ou7-J" data-input-id="enquiry-recaptcha" data-form-id="enquiry-form"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./Knowing all about Outliers in Machine Learning_files/anchor(2).html" width="304" height="78" role="presentation" name="a-qass7n03qmz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="div-enquiry-policy">
+                                    <div class="form-group field-enquiry-policy">
+<div class="checkbox">
+<label for="enquiry-policy">
+<input type="hidden" name="Enquiry[policy]" value="0"><input type="checkbox" id="enquiry-policy" name="Enquiry[policy]" value="1">
+I have read and agree to the terms of the Data science Foundation Privacy Policy
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 pt20">
+                                <button type="submit" id="submit_enquiry_form" class="btn btn-info">SUBMIT</button>                            </div>
+                        </div>
+                    </fieldset>
+                </form>            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="third_time_login" class="modal modal-md fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+                <button type="button" class="close third_time_login_close">&times;</button>
+                <h4 class="modal-title"><b>Add a Personal Profile Page</b></h4>
+            </div> -->
+            <div class="modal-body">
+            <button type="button" class="close third_time_login_close modal_close_button">×</button>
+				<p><b>Complete your membership listing and tell others about your interests, experience and qualifications with a Personal Profile page.</b></p>
+            </div>
+            <div class="modal-footer">
+				<a href="https://datascience.foundation/details/view/apply-personal-profile" type="button" class="btn btn-primary float-right" style="float:right;">Add a Personal Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="second_time_login" class="modal modal-md fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+                <button type="button" class="close second_time_login_close">&times;</button>
+                <h4 class="modal-title"><b>Add a Personal Profile Page</b></h4>
+            </div> -->
+            <div class="modal-body">
+                <button type="button" class="close second_time_login_close modal_close_button">×</button>
+                <p><b>Your Personal Profile page is missing information about your experience and qualifications that other members would find interesting. <a href="https://datascience.foundation/details/view/apply-personal-profile" style="text-decoration: underline;" onmouseover="this.style.textDecoration=&#39;none&#39;" onmouseout="this.style.textDecoration=&quot;underline&quot;">Click here to update</a>.</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="guest_user_information_popup" class="modal modal-md fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close guest_user_information_popup_close modal_close_button ">×</button>
+                <h4 class="modal-title"><b><a href="https://datascience.foundation/login">Login</a> / <a href="https://datascience.foundation/joinus">Join Us</a></b></h4>
+            </div>
+            <div class="modal-body">
+                <!-- <p><b>Please login to your DSF account for access to member only information and services. If you are not a member but have an interest in Data science, machine learning and AI, join us today.</b></p> -->
+                <p><b>Login to your membership account to view your personalised news feed, update your profile, manage your preferences. publish articles and to create a following.<br><br>If you are not a member but work with or have an interest in Data Science, Machine Learning and Artificial Intelligence, <a href="https://datascience.foundation/joinus" style="color: #337ab7;">join us today</a>.</b></p>
+            </div>
+            <div class="modal-footer">
+				<a href="https://datascience.foundation/login">Login</a> |
+				<a href="https://datascience.foundation/joinus">Join Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="donate_alert_after_login" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close donate_alert_after_login_close modal_close_button">×</button>
+                <h4 class="modal-title"><b>Support the work of the Data Science Foundation</b></h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" value="false" name="with_donation" id="with_donation">
+                <p>Help to fund our work and enable us to provide free communications and knowledge sharing services to members across the globe.</p>
+                <p><a href="javascript:void(0);" class="donate_link_login" style="color: #23527c;">Click here</a> to set-up a donation of £30 per year</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-addmore btn-lg float-right donate_link_login" style="border-radius: 50px; text-transform: none;">Donate</button>
+                <button type="button" class="btn btn-primary float-right donate_alert_after_login_close" style="float:right;">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scroll To Top -->
+<a href="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning#" class="scrollup hide-scrollup-mobile" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+</div>
+<!-- /Warpper -->
+<iframe src="./Knowing all about Outliers in Machine Learning_files/portal.html" id="st_gdpr_iframe" title="GDPR Consent Management" style="width: 0px; height: 0px; position: absolute; left: -5000px;"></iframe><script src="./Knowing all about Outliers in Machine Learning_files/custom_validation.min.js.download" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    var is_third_time_login = '';
+    var is_second_time_login = '';
+    var is_guest_user_information = '';
+    var is_donate_alert_after_login = '';
+    
+    if(is_third_time_login != '' && is_second_time_login == '') {
+		$('#third_time_login').modal('show');
+    }
+    if(is_second_time_login != '' && is_third_time_login == '') {
+        $('#second_time_login').modal('show');
+    }
+    if(is_guest_user_information != '') {
+        $('#guest_user_information_popup').modal('show');
+        $('.guest_user_information_popup_close').click(function() {
+            $('#guest_user_information_popup').modal('hide');
+        });
+    }
+    $('.report_a_fault_modal_close').click(function() {
+        $('#report_a_fault_modal').modal('hide');
+    });
+
+    $("#report_fault_form").on("afterValidate", function (event, messages) {
+        if (!form_valid('#report_fault_form')) {
+            return false;
+        }
+        return true;
+    });
+    if(is_donate_alert_after_login != '' && is_third_time_login == '' && is_second_time_login == '') {
+        $('#donate_alert_after_login').modal('show');
+    }
+    $('.donate_alert_after_login_close').click(function() {
+        $('#donate_alert_after_login').modal('hide');
+    });
+
+    $(document).on('submit', '#report_fault_form', function() {
+        if(!form_valid('#report_fault_form')) {
+            return false;
+        } else {
+            return true;
+        }
+    });
+    $('#report_form_v_attached_file').on('change', function() {
+        var fileSize = this.files[0].size / 1024 ;
+        var fileValue = $(this).val();
+        var fileExtension = $(this).val().split('.').pop().toLowerCase();
+        if($.inArray(fileExtension, ['gif','png','jpg','jpeg','doc','docx','pdf']) == -1) {
+            $('#report_fault_attachment_error').hide();
+            
+            $(this).val('');
+            $(this).after('<span style="color:red" class=#report_fault_attachment_error">Invalid file format! File format must be DOC, DOCX, PDF, JPG, JPEG, PNG or GIF.<br></span>');
+        } else if(fileSize > (1024*8) ) {
+            $('#report_fault_attachment_error').hide();
+            
+            $(this).val('');
+            $(this).after('<span style="color:red" class=#report_fault_attachment_error">Maximum file size limit is 8MB.</span>').slideDown('slow');
+            return false;
+        } else {
+            $('#report_fault_attachment_error').hide();
+        }
+    });
+
+    $(document).on('keyup blur', '#report_fault_form input', function() {
+        $('#report_fault_form input').each(function(k, v) {
+            if($(this).val() != '') {
+                console.log($(this).next());
+                $(this).nextAll('div:first').css('opacity', '0');
+            } else {
+                $(this).nextAll('div:first').css('opacity', '1');
+            }
+        });
+    });
+    // $('#guest_user_information_popup').modal('show');
+});
+</script>
+
+
+<!-----  Follow Auther popup for Non DSF member  ------>
+<div class="modal fade" id="follow_author_non_member" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form id="follow_author_non_member_form" action="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" method="post">
+<input type="hidden" name="_frontendCSRF" value="N5FS_CJ7UNAsNzOKA7OT01TWIbDKYOAYx93aAGZahnAa8wjIEisd4llvdu5A6qaaAJ5k844jkUqvu7tKFTSrJg==">
+            <input type="hidden" id="follow_author_non_member_author_id" class="" name="author_id">
+            <input type="hidden" id="follow_author_non_member_author_type" class="" name="author_type">
+                <div class="modal-header">
+                    <button type="button" class="close modal_close_button" data-dismiss="modal">×</button>
+                    <h4 class="title">Follow </h4>
+                </div>
+                <div class="modal-body">                
+                    <div class="screen-reader-2">
+                        <div class="input-group-new">
+                            <div class="form-group">
+                                <input type="text" id="follow_author_non_member_firstname" class="form-control-wrpper form-control required" name="AuthorFollowers[v_firstname]" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-reader-2">
+                        <div class="input-group-new">
+                            <div class="form-group">
+                                <input type="text" id="follow_author_non_member_lastname" class="form-control-wrpper form-control required" name="AuthorFollowers[v_lastname]" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-reader-2">
+                        <div class="input-group-new">
+                            <div class="form-group">
+                                <input type="text" id="follow_author_non_member_email" class="form-control-wrpper form-control required email" name="AuthorFollowers[v_email]" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="screen-reader-2">
+                        <div class="input-group-new">
+                            <div class="form-group">
+                                <div class="form-group field-authorfollowers-recaptcha">
+
+<input type="hidden" id="authorfollowers-recaptcha" class="form-control" name="AuthorFollowers[reCaptcha]"><div id="authorfollowers-recaptcha-recaptcha-follow_author_non_member_form" class="g-recaptcha" data-sitekey="6LeFtrgUAAAAAGuLSGNjqtEI1foN858_nS1ou7-J" data-input-id="authorfollowers-recaptcha" data-form-id="follow_author_non_member_form"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./Knowing all about Outliers in Machine Learning_files/anchor(3).html" width="304" height="78" role="presentation" name="a-ugm7hdh9xwsc" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-3" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Knowing all about Outliers in Machine Learning_files/saved_resource.html"></iframe></div>
+
+<p class="help-block help-block-error"></p>
+</div>                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-reader-2">
+                        <div class="input-group-new">
+                            <div class="form-group">
+                                <div class="form-group field-authorfollowers-privacypolicy">
+<div class="checkbox">
+<label for="authorfollowers-privacypolicy">
+<input type="hidden" name="AuthorFollowers[privacyPolicy]" value="0"><input type="checkbox" id="authorfollowers-privacypolicy" name="AuthorFollowers[privacyPolicy]" value="1">
+I have read and agree to the terms of the Data science Foundation Privacy Policy
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>        </div>
+    </div>
+</div>
+
+<div class="modal-open">
+<div id="follow_subscribe_dsf_member_popup" class="modal modal-md fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close guest_user_information_popup_close modal_close_button">×</button>
+                <h4 class="modal-title"><b>Login</b></h4>
+            </div>
+            <div class="modal-body">
+                <p><b>Login to follow this member</b></p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://datascience.foundation/sciencewhitepaper/knowing-all-about-outliers-in-machine-learning" class="login_url btn-link">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.guest_user_information_popup_close').click(function() {
+                $('#follow_subscribe_dsf_member_popup').modal('hide');
+        });
+        
+        $("#follow_author_non_member_form").on("afterValidate", function (event, messages) {
+            if (!form_valid('#follow_author_non_member_form')) {
+                return false;
+            }
+            return true;
+        });
+    });
+
+
+</script>
+<!----- end Follow Auther popup for Non DSF member ------>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('click', '.redirect-url', function(e){
+            //alert($(this).attr('redirect-url'));
+            $.ajax({
+                type: 'GET',
+                data: {'url' : $(this).attr('redirect-url')},
+                url: SITE_URL + 'information/set-return-url',
+                dataType: 'json',
+            });
+        });
+
+        var dateToday = new Date(); 
+        $( ".event_time_picker" ).datetimepicker({
+            format: 'dd-mm-yyyy hh:ii',
+            startDate: dateToday,
+        });
+
+        var loadedElements = 1;
+        $('img.lazy').lazy();
+
+        $('.logo-background-lazy').css('background-image', 'url('+ SITE_URL +'img/slider/bx1.jpg)');
+        $('<style>.latest-datatalk:before{background:  url('+ SITE_URL +'img/section-bg.jpg)}</style>').appendTo('head');
+        $('.info-wrap').css('background', 'rgba(0,0,0,0) url('+ SITE_URL +'img/information-bg.jpg) repeat scroll center top/cover');
+        $('.about-wrap').css('background', 'rgba(0,0,0,0) url('+ SITE_URL +'img/big-data.jpg) repeat scroll center top/cover');
+
+    });
+</script>
+    <script src="./Knowing all about Outliers in Machine Learning_files/api.js.download" async="" defer=""></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/yii.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/yii.validation.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/yii.activeForm.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/bootstrap.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/jquery.mCustomScrollbar.min.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/jquery.lazy.min.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/app-asset-minified-js.min.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/jquery.fancybox.min.js.download"></script>
+<script src="./Knowing all about Outliers in Machine Learning_files/custom_script.min.js.download"></script>
+<script>function recaptchaOnloadCallback() {
+    "use strict";
+    jQuery(".g-recaptcha").each(function () {
+        const reCaptcha = jQuery(this);
+        if (reCaptcha.data("recaptcha-client-id") === undefined) {
+            const recaptchaClientId = grecaptcha.render(reCaptcha.attr("id"), {
+                "callback": function (response) {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val(response)
+                            .trigger("change");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val(response).trigger("change");
+                    }
+
+                    if (reCaptcha.attr("data-callback")) {
+                        eval("(" + reCaptcha.attr("data-callback") + ")(response)");
+                    }
+                },
+                "expired-callback": function () {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val("");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val("");
+                    }
+
+                    if (reCaptcha.attr("data-expired-callback")) {
+                        eval("(" + reCaptcha.attr("data-expired-callback") + ")()");
+                    }
+                },
+            });
+            reCaptcha.data("recaptcha-client-id", recaptchaClientId);
+        }
+    });
+}</script>
+<script>jQuery(function ($) {
+jQuery('#w0').yiiActiveForm([{"id":"sendpdf-fromname","name":"fromname","container":".field-sendpdf-fromname","input":"#sendpdf-fromname","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"From name cannot be blank."});yii.validation.string(value, messages, {"message":"From name must be a string.","skipOnEmpty":1});}},{"id":"sendpdf-fromemail","name":"fromemail","container":".field-sendpdf-fromemail","input":"#sendpdf-fromemail","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"From email cannot be blank."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"From email is not a valid email address.","enableIDN":false,"skipOnEmpty":1});}},{"id":"sendpdf-toname","name":"toname","container":".field-sendpdf-toname","input":"#sendpdf-toname","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"To name cannot be blank."});yii.validation.string(value, messages, {"message":"To name must be a string.","skipOnEmpty":1});}},{"id":"sendpdf-toemail","name":"toemail","container":".field-sendpdf-toemail","input":"#sendpdf-toemail","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"To email cannot be blank."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"To email is not a valid email address.","enableIDN":false,"skipOnEmpty":1});}},{"id":"sendpdf-recaptcha","name":"reCaptcha","container":".field-sendpdf-recaptcha","input":"#sendpdf-recaptcha","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Re Captcha cannot be blank.");
+}}},{"id":"sendpdf-pdfid","name":"pdfid","container":".field-sendpdf-pdfid","input":"#sendpdf-pdfid","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Pdfid cannot be blank."});}}], []);
+jQuery('#Subscribe').yiiActiveForm([{"id":"footer-recaptcha","name":"reCaptcha","container":".field-footer-recaptcha","input":"#footer-recaptcha","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Re Captcha cannot be blank.");
+}}}], []);
+jQuery('#enquiry-form').yiiActiveForm([{"id":"enquiry-contact_id","name":"contact_id","container":".field-enquiry-contact_id","input":"#enquiry-contact_id","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Contact Id must be an integer.","skipOnEmpty":1});}},{"id":"enquiry-name","name":"name","container":".field-enquiry-name","input":"#enquiry-name","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Name cannot be blank."});}},{"id":"enquiry-email","name":"email","container":".field-enquiry-email","input":"#enquiry-email","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Email cannot be blank."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"Email is not a valid email address.","enableIDN":false,"skipOnEmpty":1});}},{"id":"enquiry-repeate_email","name":"repeate_email","container":".field-enquiry-repeate_email","input":"#enquiry-repeate_email","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Email Confirmation cannot be blank."});yii.validation.compare(value, messages, {"operator":"==","type":"string","compareAttribute":"enquiry-email","compareAttributeName":"Enquiry[email]","skipOnEmpty":1,"message":"Email Mismatch."}, $form);}},{"id":"enquiry-subject","name":"subject","container":".field-enquiry-subject","input":"#enquiry-subject","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Subject cannot be blank."});yii.validation.string(value, messages, {"message":"Subject must be a string.","skipOnEmpty":1});}},{"id":"enquiry-contact_no","name":"contact_no","container":".field-enquiry-contact_no","input":"#enquiry-contact_no","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Contact No cannot be blank."});yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Contact No must be an integer.","skipOnEmpty":1});}},{"id":"enquiry-message","name":"message","container":".field-enquiry-message","input":"#enquiry-message","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Message cannot be blank."});yii.validation.string(value, messages, {"message":"Message must be a string.","skipOnEmpty":1});}},{"id":"enquiry-recaptcha","name":"reCaptcha","container":".field-enquiry-recaptcha","input":"#enquiry-recaptcha","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Re Captcha cannot be blank.");
+}}},{"id":"enquiry-policy","name":"policy","container":".field-enquiry-policy","input":"#enquiry-policy","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.compare(value, messages, {"operator":"==","type":"string","compareValue":true,"skipOnEmpty":1,"message":"Please read and agree to the Privacy Policy."}, $form);}}], []);
+jQuery('#follow_author_non_member_form').yiiActiveForm([{"id":"authorfollowers-recaptcha","name":"reCaptcha","container":".field-authorfollowers-recaptcha","input":"#authorfollowers-recaptcha","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Re Captcha cannot be blank.");
+}}},{"id":"authorfollowers-privacypolicy","name":"privacyPolicy","container":".field-authorfollowers-privacypolicy","input":"#authorfollowers-privacypolicy","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.compare(value, messages, {"operator":"==","type":"string","compareValue":true,"skipOnEmpty":1,"message":"Please read and agree to the Privacy Policy."}, $form);}}], []);
+});</script>
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><object id="__symantecPKIClientMessenger" data-supports-flavor-configuration="true" data-extension-version="0.5.0.109" style="display: none;"></object><span id="__symantecPKIClientDetector" style="display: none;">__PRESENT</span><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Knowing all about Outliers in Machine Learning_files/bframe.html" name="c-nqqoa2dvchg" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Knowing all about Outliers in Machine Learning_files/bframe(1).html" name="c-mqy07ykny6wr" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Knowing all about Outliers in Machine Learning_files/bframe(2).html" name="c-qass7n03qmz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Knowing all about Outliers in Machine Learning_files/bframe(3).html" name="c-ugm7hdh9xwsc" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

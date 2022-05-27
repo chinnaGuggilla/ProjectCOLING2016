@@ -1,0 +1,291 @@
+// Constants
+const WIDTH = 160;
+const HEIGHT = 600;
+
+// Global variables
+var frameTemplate;
+var totalFrames;
+var gwd_page_content;
+var instant_ad_vars = {};
+var fTTracking;
+
+// Class Frame
+function Frame(id) {
+  this.id = id;
+  if(id > 0) {
+    this.frame_container = frameTemplate.cloneNode(true);
+    jQuery(frameTemplate).after(this.frame_container);
+  }
+  else {
+    this.frame_container = frameTemplate;
+  }
+  this.frame_container.id = "frame_" + id;
+  this.dell_logo = {};
+  this.dell_logo["dell_tech"] = this.frame_container.querySelector(".dell_logo");
+  this.dell_logo["dell_forum"] = this.frame_container.querySelector(".dell_logo_2");
+  this.logo_type = "dell_tech";
+  this.mdf_logo = {};
+  this.mdf_logo['intel_badge'] = this.frame_container.querySelector(".mdf_logo");
+  this.mdf_logo['intel_logo'] = this.frame_container.querySelector(".mdf_logo_2");
+  this.mdf_logo_type = "intel_badge";
+  this.mdf_description = this.frame_container.querySelector(".mdf_description");
+  this.header_text = this.frame_container.querySelector(".header_text");
+  this.cta_container = {};
+  this.cta_container["stage2"] = this.frame_container.querySelector("#cta_stage_2");
+  this.cta_container["stage1"] = this.frame_container.querySelector("#cta_stage_1");
+  this.cta_text = {};
+  this.cta_text["stage1"] = this.frame_container.querySelector(".cta_stage_1");
+  this.cta_text["stage2"] = this.frame_container.querySelector(".cta_stage_2");
+  this.background = this.frame_container.querySelector(".background");
+}
+// Init
+Frame.prototype.init = function() {
+  this.banner_stage = "stage1";
+  var cta_text = instant_ad_vars["F" + (this.id+1) + "_cta_text"];
+  if(cta_text.length >= 2 && cta_text.charAt(0) === '[' && cta_text.charAt(cta_text.length - 1) === ']') {
+    this.banner_stage = "stage2";
+  }
+  if(this.id > 0) {
+    TweenLite.set(this.frame_container, {autoAlpha: 0});
+    // TweenLite.to(this.cta_text, 0.5, {autoAlpha: 0, visibility: "hidden"});
+  }
+  TweenLite.set(this.dell_logo["dell_forum"], {autoAlpha: 0});
+  TweenLite.set(this.dell_logo["dell_tech"], {autoAlpha: 0});
+  TweenLite.set(this.mdf_logo["intel_badge"], {autoAlpha: 0});
+  TweenLite.set(this.mdf_logo["intel_logo"], {autoAlpha: 0});
+  TweenLite.set(this.cta_container["stage1"], {autoAlpha: 0});
+  TweenLite.set(this.cta_container["stage2"], {autoAlpha: 0});
+  TweenLite.set(this.cta_container[this.banner_stage], {autoAlpha: 1});
+};
+// Animate In
+Frame.prototype.animateIn = function(fromCSS, toCSS) {
+  tl = new TimelineLite();
+  tl.set(this.frame_container, {autoAlpha: 1}, "in");
+  tl.fromTo(this.dell_logo[this.logo_type], 0.5, fromCSS, toCSS, "in");
+  tl.fromTo(this.mdf_logo[this.mdf_logo_type], 0.5, fromCSS, toCSS, "in");
+  tl.fromTo(this.mdf_description, 0.5, fromCSS, toCSS, "in");
+  tl.fromTo(this.header_text, 0.5, fromCSS, toCSS, "in");
+  tl.fromTo(this.background, 0.5, fromCSS, toCSS, "in");
+  tl.fromTo(this.cta_container[this.banner_stage], 0.5, fromCSS, toCSS, "in");
+  return tl;
+};
+// Animate Out
+Frame.prototype.animateOut = function(fromCSS, toCSS) {
+  tl = new TimelineLite();
+  tl.fromTo(this.dell_logo[this.logo_type], 0.5, fromCSS, toCSS, "out");
+  tl.fromTo(this.mdf_logo[this.mdf_logo_type], 0.5, fromCSS, toCSS, "out");
+  tl.fromTo(this.mdf_description, 0.5, fromCSS, toCSS, "out");
+  tl.fromTo(this.header_text, 0.5, fromCSS, toCSS, "out");
+  tl.fromTo(this.background, 0.5, fromCSS, toCSS, "out");
+  tl.fromTo(this.cta_container[this.banner_stage], 0.5, fromCSS, toCSS, "out");
+  tl.set(this.frame_container, {autoAlpha: 0}, "out+0.5");
+  return tl;
+};
+// Map
+Frame.prototype.map = function() {
+  var id = this.id;
+  var dell_logo_instant_ad = instant_ad_vars["F" + (id+1) + "_dell_logo"].split('|');
+  var dell_logo_url = (dell_logo_instant_ad && dell_logo_instant_ad.length > 1) ? dell_logo_instant_ad[dell_logo_instant_ad.length - 1] : instant_ad_vars["F" + (id+1) + "_dell_logo"];
+  if(dell_logo_instant_ad && dell_logo_instant_ad.length > 1 && dell_logo_instant_ad[0].toLowerCase().indexOf('dell_forum') > -1) {
+    this.logo_type = "dell_forum";
+  }
+
+  var vf_logo_instant_ad = instant_ad_vars["F" + (id+1) + "_VF_logo"].split('|');
+  var vf_logo_url = (vf_logo_instant_ad && vf_logo_instant_ad.length > 1) ? vf_logo_instant_ad[vf_logo_instant_ad.length - 1] : instant_ad_vars["F" + (id+1) + "_VF_logo"];
+  if(vf_logo_instant_ad && vf_logo_instant_ad.length > 1 && vf_logo_instant_ad[0].toLowerCase().indexOf('intel_logo') > -1) {
+    this.mdf_logo_type = "intel_logo";
+  }
+  TweenLite.set(this.dell_logo[this.logo_type], {autoAlpha: 1});
+  TweenLite.set(this.mdf_logo[this.mdf_logo_type], {autoAlpha: 1});
+
+  this.dell_logo[this.logo_type].setAttribute("source", dell_logo_url);
+  this.mdf_logo[this.mdf_logo_type].setAttribute("source", vf_logo_url);
+  this.mdf_description.innerHTML = instant_ad_vars["F" + (id+1) + "_VF_desc"];
+  this.header_text.innerHTML = instant_ad_vars["F" + (id+1) + "_headline"];
+  this.background.setAttribute("source", instant_ad_vars["F" + (id+1) + "_BG_image"]);
+  this.cta_text[this.banner_stage].innerHTML = instant_ad_vars["F" + (id+1) + "_cta_text"].replace('[', '').replace(']', '');
+};
+
+// Class banner
+function Banner() {
+  this.frames = [];
+  this.tl;
+  this.current = 0;
+  this.uIEnable = true;
+  this.arrow_left = document.getElementById("arrow_left");
+  this.arrow_right = document.getElementById("arrow_right");
+  // Create frames
+  for(var i=0; i<totalFrames; i++) {
+    this.frames.push(new Frame(i));
+  }
+}
+// Init
+Banner.prototype.init = function() {
+  for(var i=0; i<totalFrames; i++) {
+    this.frames[i].init();
+  }
+};
+// Animate
+Banner.prototype.animate = function() {
+  var i=1;
+  this.tl = setInterval(function() {
+    if(i >= Number(totalFrames) + 1) {
+      clearInterval(this.tl);
+      return;
+    }
+    this.animateUtilMoveRight();
+    i++;
+  }.bind(this), 2500);
+
+}
+// Animate Util Move right
+Banner.prototype.animateUtilMoveLeft = function() {
+  this.uIEnable = false;
+  var tl;
+  var prev = this.current;
+  this.current = (this.current + (totalFrames - 1)) % totalFrames;
+  var current = this.current;
+  // Move current in frame
+  this.frames[current].animateIn({left: '-='+WIDTH, autoAlpha: 1}, {left:'+='+WIDTH, autoAlpha: 1});
+  // Mover prev out frame
+  this.frames[prev].animateOut({left: '+='+0, autoAlpha: 1}, {left: '+='+WIDTH, autoAlpha: 1});
+  tl = this.frames[prev].animateOut({left: '+='+WIDTH, autoAlpha: 0}, {left: '-='+WIDTH, autoAlpha: 0, delay: 0.5});
+  tl.add(function() {
+    this.uIEnable = true;
+  }.bind(this));
+};
+// Animate Util Move left
+Banner.prototype.animateUtilMoveRight = function() {
+  this.uIEnable = false;
+  var tl;
+  var prev = this.current;
+  this.current = (this.current + 1) % totalFrames;
+  var current = this.current;
+  // Move current in frame
+  this.frames[current].animateIn({left: '+='+WIDTH, autoAlpha: 1}, {left:'-='+WIDTH, autoAlpha: 1});
+  // Mover prev out frame
+  this.frames[prev].animateOut({left: '-='+0, autoAlpha: 1}, {left: '-='+WIDTH, autoAlpha: 1});
+  tl = this.frames[prev].animateOut({left: '-='+WIDTH, autoAlpha: 0}, {left: '+='+WIDTH, autoAlpha: 0, delay: 0.5});
+  tl.add(function() {
+    this.uIEnable = true;
+  }.bind(this));
+};
+// Mapping
+Banner.prototype.map = function() {
+  for(var i=0; i<totalFrames; i++) {
+    this.frames[i].map();
+  }
+}
+// Add user interactions
+Banner.prototype.addUserInteractions = function() {
+  this.arrow_left.addEventListener("click", function() {
+    if(!this.uIEnable || totalFrames == 1) {
+      return;
+    }
+    clearInterval(this.tl);
+    this.animateUtilMoveLeft();
+  }.bind(this));
+  this.arrow_right.addEventListener("click", function() {
+    if(!this.uIEnable || totalFrames == 1) {
+      return;
+    }
+    clearInterval(this.tl);
+    this.animateUtilMoveRight();
+  }.bind(this));
+  // Click through
+  gwd_page_content.addEventListener('click', function(event) {
+    if(jQuery(event.target).parents(".arrow_left").length > 0 || jQuery(event.target).parents(".arrow_right").length > 0 || event.target.className.indexOf("arrow_right") > -1  || event.target.className.indexOf("arrow_left") > -1) return;
+    // Call click state event.
+    var dataStringToTrackOnClick = encodeURIComponent(instant_ad_vars["F" + (this.current+1) + "_destinationURL"]);
+    //Tracker.clickTrackEvent(dataStringToTrackOnClick);
+    fTTracking.addQueryVarToClickTags("ft_custom", dataStringToTrackOnClick);
+    myFT.clickTag(this.current + 1, instant_ad_vars["F" + (this.current+1) + "_destinationURL"]);
+  }.bind(this));
+};
+
+// Success callback.
+function main() {
+  setTimeout(function() {
+    // gwd_page_content.
+    gwd_page_content = document.querySelector('.gwd-page-content');
+    // init ft tracking.
+    fTTracking = new FTTracking();
+    // Initialize instantAds
+    instant_ad_vars = myFT.instantAds;
+    // insertCSS
+    if(instant_ad_vars.insertCSS) {
+      myFT.insertCSS(instant_ad_vars.insertCSS);
+    }
+    // Frame template
+    frameTemplate = document.getElementById("frame");
+    if(!frameTemplate) {
+      error();
+      return;
+    }
+    // total frames
+    totalFrames = Number(Math.min(4, instant_ad_vars.totalFrames));
+    // Create banner instance.
+    var banner = new Banner();
+    // Initialize banner.
+    banner.init();
+    // banner map
+    banner.map();
+    // Add user interactions.
+    banner.addUserInteractions();
+		// track products.
+    // fTTracking.trackProducts(product_feeds, 'creative_set', 'url');
+    // Add image script.
+    var script = document.createElement('script');
+    script.src = "gwdimage_min.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+    // Display content.
+    setTimeout(function() {
+      gwd_page_content.classList.remove('gwd-page-content-display-none');
+    });
+    // Animate banner.
+    if(totalFrames > 1) {
+      setTimeout(function() {
+        banner.animate();
+      });
+    }
+  });
+}
+
+// Error callback.
+function error(error) {
+  // Handle error by displaying default banner image.
+  document.querySelector('.gwd-page-content').innerHTML = '';
+  document.querySelector('.gwd-page-content').style.backgroundImage = 'url('+ myFT.instantAds.backupImage +')';
+  document.querySelector('.gwd-page-content').classList.remove('gwd-page-content-display-none');
+}
+
+/**
+  * Handles the event that is dispatched after the Ad has been
+  * initialized and before the default page of the Ad is shown.
+  */
+function handleAdInitialized(event) {
+  setTimeout(function() {
+    // var ftFeed = new FTFeed(myFT);
+    // ftFeed.getFeed(main, error);
+    main();
+  }, 0);
+}
+// Event handler.
+window.addEventListener('adinitialized', handleAdInitialized, false);
+// InstantAds event handler.
+var adInit = (function() {
+  var execute = false;
+  return function() {
+    if(execute) {
+      var gwdAd = document.getElementById('gwd-ad');
+      // Initialize an ad.
+      setTimeout(function() {
+        gwdAd.initAd();
+      }, 0);
+    }
+    execute = true;
+  }
+})();
+// myFT.on('instantads', adInit);
+adInit();
+window.addEventListener('WebComponentsReady', adInit, false);
